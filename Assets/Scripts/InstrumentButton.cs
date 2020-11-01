@@ -29,14 +29,9 @@ public class InstrumentButton : MonoBehaviour, IPointerEnterHandler, IPointerExi
         CreateAudioSources();
     }
 
-    public void SetInstrumentSounds(ButtonClipData buttonClipData)
+    public void SetInstrumentSounds(AudioClip[] audioClips)
     {
-        AudioClip[] clips = new AudioClip[buttonClipData.AudioClips.Length];
-        for (int i = 0; i < clips.Length; i++)
-        {
-            clips[i] = buttonClipData.AudioClips[i];
-        }
-        audioClips = clips;
+        this.audioClips = audioClips;
         SetNextAudioClip();
 
         test = false;

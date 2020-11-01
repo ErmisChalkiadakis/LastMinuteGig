@@ -63,6 +63,6 @@ public class StickFigure : MonoBehaviour
 
         string newChordName = CHORD + scheduledClip.InputClip.Chord.ToString();
         animator.SetTrigger(Animator.StringToHash(newChordName));
-        animator.SetFloat(ROCK_SPEED_HASH, (float)scheduledClip.PercussionClip.Tempo / BASE_TEMPO);
+        animator.SetFloat(ROCK_SPEED_HASH, scheduledClip.PercussionClip.Tempo / BASE_TEMPO);
     }
 }

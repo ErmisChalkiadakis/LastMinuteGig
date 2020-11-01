@@ -148,7 +148,7 @@ public class MusicClipInputManager : MonoBehaviour
         }
 
         currentInputWindows = nextInputWindows;
-        //middleButton.SetInstrumentSounds(scheduledClip.MiddleButtonClipData);
+        middleButton.SetInstrumentSounds(scheduledClip.InputClip.AudioClips);
         //upButton.SetInstrumentSound(scheduledClip.UpButtonInstrumentSound);
         //downButton.SetInstrumentSound(scheduledClip.DownButtonInstrumentSound);
     }

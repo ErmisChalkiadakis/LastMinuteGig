@@ -15,10 +15,13 @@ public class MusicClipManager : MonoBehaviour
 
     private ChordProgression currentChordProgression;
     private int chordProgressionIndex = 0;
+    private Key currentKey;
+
+    private PercussionMusicClip currentPercussionClip;
+    private InputMusicClip currentInputClip;
+    private LayerMusicClip[] currentLayerClips;
 
     private List<MusicClipResults> clipResults;
-
-    private Key currentKey;
 
     private double nextEventTime = double.MaxValue;
 
@@ -31,6 +34,8 @@ public class MusicClipManager : MonoBehaviour
 
     protected void Start()
     {
+        currentKey = Key.C;
+        currentChordProgression = chordProgressionLibrary.GetRandomChordProgression();
         QueueNextClip();
     }
 
@@ -54,30 +59,24 @@ public class MusicClipManager : MonoBehaviour
 
     private void QueueNextClip()
     {
-        PercussionMusicClip percussionClip = percussionClipLibrary.GetRandomClip();
-        InputMusicClip inputClip = inputClipLibrary.GetRandomClip();
+        ChordNotation notation = currentChordProgression.chords[chordProgressionIndex];
+        Chord chordToGet = KeyNotationToChordHelper.GetChord(currentKey, notation);
+
+        currentPercussionClip = percussionClipLibrary.GetRandomClip();
+        currentInputClip = inputClipLibrary.GetClipWithInstrumentAndChord(Instrument.ElectricGuitar, chordToGet);
 
         // TODO fix this
         //LayerMusicClip layerClip = layerClipLibrary.GetRandomClip();
 
-        MusicClip clip = new MusicClip(percussionClip, inputClip, new LayerMusicClip[0]);
+        MusicClip clip = new MusicClip(currentPercussionClip, currentInputClip, new LayerMusicClip[0]);
         musicMixer.QueueClip(clip);
 
         nextEventTime = AudioSettings.dspTime + clip.Duration;
 
-        /*
-        ChordNotation notation = currentChordProgression.chords[chordProgressionIndex];
-        Chord chordToGet = KeyNotationToChordHelper.GetChord(currentKey, notation);
-
-        if (clip != null)
-        {
-            musicMixer.QueueClip(clip);
-        }
 
         if (++chordProgressionIndex >= currentChordProgression.chords.Length)
         {
             chordProgressionIndex -= currentChordProgression.chords.Length;
         }
-        */
     }
 }

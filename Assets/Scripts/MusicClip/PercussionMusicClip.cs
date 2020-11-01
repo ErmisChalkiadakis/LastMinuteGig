@@ -12,18 +12,5 @@ public class PercussionMusicClip
     public Rhythm Rhythm;
     public ButtonTiming[] ButtonTimings;
 
-    public double ClipDuration => 60f * GetRhythmModifier() / Tempo; 
-    
-    private float GetRhythmModifier()
-    {
-        switch (Rhythm)
-        {
-            case Rhythm.FourFour:
-                return 4;
-            case Rhythm.ThreeFour:
-                return 3;
-            default:
-                return 1;
-        }
-    }
+    public double ClipDuration => 60f * RhythmModifierHelper.GetRhythmModifier(Rhythm) / Tempo; 
 }

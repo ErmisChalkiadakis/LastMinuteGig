@@ -4,5 +4,5 @@
 public class ChordProgression
 {
     public string name;
-    public ChordNotation[] chords;
+    [FixEnumNames]public ChordNotation[] chords;
 }

@@ -124,23 +124,23 @@ public class MusicClipInputManager : MonoBehaviour
         activeClipResults.InputWindowResults.Clear();
     }
 
-    private void OnClipScheduledEvent(PercussionMusicClip scheduledClip, double startingTime)
+    private void OnClipScheduledEvent(MusicClip scheduledClip, double startingTime)
     {
         nextInputWindows.Clear();
-        foreach (ButtonTiming buttonTiming in scheduledClip.ButtonTimings)
+        foreach (ButtonTiming buttonTiming in scheduledClip.PercussionClip.ButtonTimings)
         {
-            double min = startingTime + (scheduledClip.ClipDuration * buttonTiming.Timing) - inputWindowLeniency;
-            double max = Mathf.Min((float)(startingTime + (scheduledClip.ClipDuration * buttonTiming.Timing) + inputWindowLeniency), (float)(startingTime + scheduledClip.ClipDuration));
+            double min = startingTime + (scheduledClip.Duration * buttonTiming.Timing) - inputWindowLeniency;
+            double max = Mathf.Min((float)(startingTime + (scheduledClip.Duration * buttonTiming.Timing) + inputWindowLeniency), (float)(startingTime + scheduledClip.Duration));
             nextInputWindows.Add(new InputWindow(min, max, buttonTiming.ButtonID));
         }
 
-        double endingTime = startingTime + scheduledClip.ClipDuration;
+        double endingTime = startingTime + scheduledClip.Duration;
 
         StartCoroutine(ClipStarting(scheduledClip, startingTime));
         StartCoroutine(ClipFinished(endingTime));
     }
 
-    private IEnumerator ClipStarting(PercussionMusicClip scheduledClip, double scheduledTime)
+    private IEnumerator ClipStarting(MusicClip scheduledClip, double scheduledTime)
     {
         while(AudioSettings.dspTime < scheduledTime - CLIP_CHANGE_WINDOW)
         {

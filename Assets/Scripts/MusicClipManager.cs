@@ -8,7 +8,9 @@ public class MusicClipManager : MonoBehaviour
 
     [SerializeField] private MusicMixer musicMixer;
     [SerializeField] private MusicClipInputManager inputManager;
-    [SerializeField] private PercussionMusicClipLibrary musicClipLibrary;
+    [SerializeField] private PercussionMusicClipLibrary percussionClipLibrary;
+    [SerializeField] private InputMusicClipLibrary inputClipLibrary;
+    [SerializeField] private LayerMusicClipLibrary layerClipLibrary;
     [SerializeField] private ChordProgressionLibrary chordProgressionLibrary;
 
     private ChordProgression currentChordProgression;
@@ -29,8 +31,6 @@ public class MusicClipManager : MonoBehaviour
 
     protected void Start()
     {
-        currentKey = Key.C;
-        currentChordProgression = chordProgressionLibrary.GetRandomChordProgression();
         QueueNextClip();
     }
 
@@ -54,10 +54,21 @@ public class MusicClipManager : MonoBehaviour
 
     private void QueueNextClip()
     {
+        PercussionMusicClip percussionClip = percussionClipLibrary.GetRandomClip();
+        InputMusicClip inputClip = inputClipLibrary.GetRandomClip();
+
+        // TODO fix this
+        //LayerMusicClip layerClip = layerClipLibrary.GetRandomClip();
+
+        MusicClip clip = new MusicClip(percussionClip, inputClip, new LayerMusicClip[0]);
+        musicMixer.QueueClip(clip);
+
+        nextEventTime = AudioSettings.dspTime + clip.Duration;
+
+        /*
         ChordNotation notation = currentChordProgression.chords[chordProgressionIndex];
         Chord chordToGet = KeyNotationToChordHelper.GetChord(currentKey, notation);
 
-        /*
         if (clip != null)
         {
             musicMixer.QueueClip(clip);
@@ -67,8 +78,6 @@ public class MusicClipManager : MonoBehaviour
         {
             chordProgressionIndex -= currentChordProgression.chords.Length;
         }
-
-        nextEventTime = AudioSettings.dspTime + clip.ClipDuration;
         */
     }
 }

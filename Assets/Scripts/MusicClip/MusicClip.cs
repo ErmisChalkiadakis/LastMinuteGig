@@ -5,4 +5,11 @@
     public LayerMusicClip[] LayerClips;
 
     public double Duration => PercussionClip.ClipDuration;
+
+    public MusicClip(PercussionMusicClip percussionClip, InputMusicClip inputClip, LayerMusicClip[] layerClips)
+    {
+        PercussionClip = percussionClip;
+        InputClip = inputClip;
+        LayerClips = layerClips;
+    }
 }

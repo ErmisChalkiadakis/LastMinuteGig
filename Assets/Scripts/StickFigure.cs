@@ -7,7 +7,9 @@ public class StickFigure : MonoBehaviour
 {
     private static int ROCK_HASH = Animator.StringToHash("Rock");
     private static int PLAY_HASH = Animator.StringToHash("Play");
+    private static int ROCK_SPEED_HASH = Animator.StringToHash("RockSpeed");
     private const string CHORD = "Chord";
+    private const int BASE_TEMPO = 120;
 
     [SerializeField] private Animator animator;
     [SerializeField] private MusicMixer musicMixer;
@@ -26,7 +28,7 @@ public class StickFigure : MonoBehaviour
         musicMixer.ClipScheduledEvent -= OnClipScheduledEvent;
     }
 
-    private void OnClipScheduledEvent(PercussionMusicClip scheduledClip, double startingTime)
+    private void OnClipScheduledEvent(MusicClip scheduledClip, double startingTime)
     {
         if (!isRocking)
         {
@@ -34,7 +36,6 @@ public class StickFigure : MonoBehaviour
         }
 
         StartCoroutine(ChangeChord(scheduledClip, startingTime));
-        // TODO: Handle animator's speed based on clip tempo.
     }
 
     private void OnButtonSelectedEvent(ButtonID buttonId)
@@ -53,15 +54,15 @@ public class StickFigure : MonoBehaviour
         animator.SetTrigger(ROCK_HASH);
     }
 
-    private IEnumerator ChangeChord(PercussionMusicClip scheduledClip, double startingTime)
+    private IEnumerator ChangeChord(MusicClip scheduledClip, double startingTime)
     {
         while (AudioSettings.dspTime < startingTime)
         {
             yield return null;
         }
 
-        // TODO: fix this.
-        //string newChordName = CHORD + scheduledClip.MiddleButtonClipData.chord.ToString();
-        //animator.SetTrigger(Animator.StringToHash(newChordName));
+        string newChordName = CHORD + scheduledClip.InputClip.Chord.ToString();
+        animator.SetTrigger(Animator.StringToHash(newChordName));
+        animator.SetFloat(ROCK_SPEED_HASH, (float)scheduledClip.PercussionClip.Tempo / BASE_TEMPO);
     }
 }

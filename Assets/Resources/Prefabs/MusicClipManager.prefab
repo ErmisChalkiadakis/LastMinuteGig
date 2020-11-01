@@ -45,6 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicMixer: {fileID: 0}
   inputManager: {fileID: 0}
-  musicClipLibrary: {fileID: 11400000, guid: fcaca4ec716d82a4eb22fd1126385527, type: 2}
+  percussionClipLibrary: {fileID: 11400000, guid: fcaca4ec716d82a4eb22fd1126385527,
+    type: 2}
+  inputClipLibrary: {fileID: 11400000, guid: b0db2f6bfb9ee404f841146ab6e1b6f8, type: 2}
+  layerClipLibrary: {fileID: 11400000, guid: f76b579ecab1062408e8afd5e77084a2, type: 2}
   chordProgressionLibrary: {fileID: 11400000, guid: c33f2954432d4664b92decc3d3815303,
     type: 2}

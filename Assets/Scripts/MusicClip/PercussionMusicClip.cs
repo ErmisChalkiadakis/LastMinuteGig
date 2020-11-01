@@ -6,7 +6,7 @@ public class PercussionMusicClip
 {
     public string Name;
     public AudioClip AudioClip;
-    public int Tempo; /// Measured in BPM.
+    public float Tempo; /// Measured in BPM.
     public Instrument Instrument;
     public Key Key;
     public Rhythm Rhythm;

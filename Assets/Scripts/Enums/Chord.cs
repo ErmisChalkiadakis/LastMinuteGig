@@ -1,0 +1,27 @@
+﻿public enum Chord
+{
+    A,
+    Am,
+    ASharp,
+    ASharpm,
+    B,
+    Bm,
+    C,
+    Cm,
+    CSharp,
+    CSharpm,
+    D,
+    Dm,
+    DSharp,
+    DSharpm,
+    E,
+    Em,
+    F,
+    Fm,
+    FSharp,
+    FSharpm,
+    G,
+    Gm,
+    GSharp,
+    GSharpm
+}

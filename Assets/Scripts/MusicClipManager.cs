@@ -57,8 +57,7 @@ public class MusicClipManager : MonoBehaviour
         ChordNotation notation = currentChordProgression.chords[chordProgressionIndex];
         Chord chordToGet = KeyNotationToChordHelper.GetChord(currentKey, notation);
 
-        PercussionMusicClip clip = musicClipLibrary.GetClipWithChord(chordToGet);
-
+        /*
         if (clip != null)
         {
             musicMixer.QueueClip(clip);
@@ -70,5 +69,6 @@ public class MusicClipManager : MonoBehaviour
         }
 
         nextEventTime = AudioSettings.dspTime + clip.ClipDuration;
+        */
     }
 }

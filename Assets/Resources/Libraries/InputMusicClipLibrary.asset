@@ -12,3 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3967417f644633b4d9660cc0e954518a, type: 3}
   m_Name: InputMusicClipLibrary
   m_EditorClassIdentifier: 
+  inputMusicClips:
+  - Name: ElectricGuitar_C
+    Instrument: 1
+    Chord: 6
+    AudioClips:
+    - {fileID: 8300000, guid: 91f02f64b09aac041adf6088d7ef8cba, type: 3}
+    - {fileID: 8300000, guid: 424fa1a360304f64c8b4a0a3659b479d, type: 3}
+  - Name: ElectricGuitar_Am
+    Instrument: 1
+    Chord: 1
+    AudioClips:
+    - {fileID: 8300000, guid: 33f10739e3ba77043835d0939334dab0, type: 3}
+    - {fileID: 8300000, guid: eb5662f656e1dfb41a13b61389433606, type: 3}
+  - Name: ElectricGuitar_F
+    Instrument: 1
+    Chord: 16
+    AudioClips:
+    - {fileID: 8300000, guid: 417773916ad3ff04fab32f11c0242312, type: 3}
+    - {fileID: 8300000, guid: 7f319fb09aa77e0479387f4ee80f715c, type: 3}
+  - Name: ElectricGuitar_G
+    Instrument: 1
+    Chord: 20
+    AudioClips:
+    - {fileID: 8300000, guid: 73da9e129455e284887767e68bf79ae6, type: 3}
+    - {fileID: 8300000, guid: eeb751badeeca3b4e85ac1e6b00f5b42, type: 3}

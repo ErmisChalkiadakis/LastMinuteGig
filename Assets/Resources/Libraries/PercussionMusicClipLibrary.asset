@@ -12,40 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ee5789a6bdc994396cad821fe60b4d, type: 3}
   m_Name: PercussionMusicClipLibrary
   m_EditorClassIdentifier: 
-  musicClips:
-  - name: DrumsFourFour120
-    AudioClip: {fileID: 8300000, guid: 1bb2315fc6eb15f4da8bacccda4df90e, type: 3}
-    Tempo: 120
-    Instrument: 2
-    Key: 3
-    Rhythm: 0
-    ButtonTimings:
-    - Timing: 0
-      ButtonID: 1
-    - Timing: 0.25
-      ButtonID: 1
-    - Timing: 0.5
-      ButtonID: 1
-    - Timing: 0.75
-      ButtonID: 1
-    MiddleButtonClipData:
-      chord: 6
-      AudioClips:
-      - {fileID: 8300000, guid: aeed37db6c864594dad2f7e45e48ab9d, type: 3}
-      - {fileID: 8300000, guid: 9f608cf86e08d2447af86ebc69eb88e3, type: 3}
-    UpButtonClipData:
-      chord: 6
-      AudioClips:
-      - {fileID: 8300000, guid: aeed37db6c864594dad2f7e45e48ab9d, type: 3}
-      - {fileID: 8300000, guid: 9f608cf86e08d2447af86ebc69eb88e3, type: 3}
-    DownButtonClipData:
-      chord: 0
-      AudioClips: []
-  - name: DrumsFourFour96
+  percussionMusicClips:
+  - Name: DrumsFourFour96
     AudioClip: {fileID: 8300000, guid: 548c9d521fb24c94aad00de5981bfa5e, type: 3}
     Tempo: 96
-    Instrument: 2
-    Key: 3
+    Instrument: 0
+    Key: 0
     Rhythm: 0
     ButtonTimings:
     - Timing: 0
@@ -56,16 +28,18 @@ MonoBehaviour:
       ButtonID: 1
     - Timing: 0.75
       ButtonID: 1
-    MiddleButtonClipData:
-      chord: 6
-      AudioClips:
-      - {fileID: 8300000, guid: aeed37db6c864594dad2f7e45e48ab9d, type: 3}
-      - {fileID: 8300000, guid: 9f608cf86e08d2447af86ebc69eb88e3, type: 3}
-    UpButtonClipData:
-      chord: 6
-      AudioClips:
-      - {fileID: 8300000, guid: aeed37db6c864594dad2f7e45e48ab9d, type: 3}
-      - {fileID: 8300000, guid: 9f608cf86e08d2447af86ebc69eb88e3, type: 3}
-    DownButtonClipData:
-      chord: 0
-      AudioClips: []
+  - Name: DrumsFourFour120
+    AudioClip: {fileID: 8300000, guid: 1bb2315fc6eb15f4da8bacccda4df90e, type: 3}
+    Tempo: 120
+    Instrument: 0
+    Key: 0
+    Rhythm: 0
+    ButtonTimings:
+    - Timing: 0
+      ButtonID: 1
+    - Timing: 0.25
+      ButtonID: 1
+    - Timing: 0.5
+      ButtonID: 1
+    - Timing: 0.75
+      ButtonID: 1

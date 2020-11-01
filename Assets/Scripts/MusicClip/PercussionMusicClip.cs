@@ -4,16 +4,13 @@ using UnityEngine;
 [Serializable]
 public class PercussionMusicClip
 {
-    public string name;
+    public string Name;
     public AudioClip AudioClip;
     public int Tempo; /// Measured in BPM.
     public Instrument Instrument;
     public Key Key;
     public Rhythm Rhythm;
     public ButtonTiming[] ButtonTimings;
-    public ButtonClipData MiddleButtonClipData;
-    public ButtonClipData UpButtonClipData;
-    public ButtonClipData DownButtonClipData;
 
     public double ClipDuration => 60f * GetRhythmModifier() / Tempo; 
     

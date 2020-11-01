@@ -60,7 +60,8 @@ public class StickFigure : MonoBehaviour
             yield return null;
         }
 
-        string newChordName = CHORD + scheduledClip.MiddleButtonClipData.chord.ToString();
-        animator.SetTrigger(Animator.StringToHash(newChordName));
+        // TODO: fix this.
+        //string newChordName = CHORD + scheduledClip.MiddleButtonClipData.chord.ToString();
+        //animator.SetTrigger(Animator.StringToHash(newChordName));
     }
 }

@@ -1,4 +1,7 @@
-﻿public class LayerMusicClip
+﻿using System;
+
+[Serializable]
+public class LayerMusicClip
 {
 
 }

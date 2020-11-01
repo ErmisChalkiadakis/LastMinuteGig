@@ -3,16 +3,16 @@ using Random = System.Random;
 
 public class PercussionMusicClipLibrary : ScriptableObject
 {
-    [SerializeField] private PercussionMusicClip[] musicClips;
+    [SerializeField] private PercussionMusicClip[] percussionMusicClips;
 
     public PercussionMusicClip GetRandomPercussionClip()
     {
-        if (musicClips.Length > 0)
+        if (percussionMusicClips.Length > 0)
         {
             Random random = new Random();
 
-            int randomInt = random.Next(musicClips.Length);
-            return musicClips[randomInt];
+            int randomIndex = random.Next(percussionMusicClips.Length);
+            return percussionMusicClips[randomIndex];
         }
 
         Debug.LogError($"PercussionMusicClipLibrary is empty.");

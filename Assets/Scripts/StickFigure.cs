@@ -28,6 +28,11 @@ public class StickFigure : MonoBehaviour
         musicMixer.ClipScheduledEvent -= OnClipScheduledEvent;
     }
 
+    public void StopRocking()
+    {
+        animator.SetBool(ROCK_HASH, false);
+    }
+
     private void OnClipScheduledEvent(MusicClip scheduledClip, double startingTime)
     {
         if (!isRocking)

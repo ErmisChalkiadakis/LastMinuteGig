@@ -27,7 +27,7 @@ public class MusicMixer : MonoBehaviour
 
     protected void Update()
     {
-        if (AudioSettings.dspTime + FLIP_INTERVAL > nextEventTime )
+        if (AudioSettings.dspTime + FLIP_INTERVAL > nextEventTime)
         {
             if (clipQueue.Count > 0)
             {

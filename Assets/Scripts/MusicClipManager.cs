@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MusicClipManager : MonoBehaviour
 {
+    public delegate void SequenceEndedHandler();
+    public event SequenceEndedHandler SequenceEndedEvent;
+
     private const float FLIP_INTERVAL = 0.5f;
+    private const float DELAY_UNTIL_FIRST = 1f;
 
     [SerializeField] private MusicMixer musicMixer;
     [SerializeField] private MusicClipInputManager inputManager;
@@ -38,9 +43,7 @@ public class MusicClipManager : MonoBehaviour
 
     protected void Start()
     {
-        //currentKey = Key.C;
-        //currentChordProgression = chordProgressionLibrary.GetRandomChordProgression();
-        QueueNextClip();
+        nextEventTime = AudioSettings.dspTime + DELAY_UNTIL_FIRST;
     }
 
     protected void OnDestroy()
@@ -50,7 +53,7 @@ public class MusicClipManager : MonoBehaviour
 
     protected void Update()
     {
-        if (AudioSettings.dspTime > nextEventTime - FLIP_INTERVAL)
+        if (AudioSettings.dspTime + FLIP_INTERVAL > nextEventTime)
         {
             QueueNextClip();
         }
@@ -58,19 +61,26 @@ public class MusicClipManager : MonoBehaviour
 
     private void OnClipInputFinalizedEvent(MusicClipResults clipResults)
     {
+        Debug.Log($"Manager knowing clip is finalized");
         this.clipResults.Add(clipResults);
+
+        if (clipSetSequence.SequenceLength <= clipSetIndex)
+        {
+            nextEventTime = double.MaxValue;
+            SequenceEndedEvent?.Invoke();
+        }
     }
 
     private void QueueNextClip()
     {
-        //ChordNotation notation = currentChordProgression.chords[chordProgressionIndex];
-        //Chord chordToGet = KeyNotationToChordHelper.GetChord(currentKey, notation);
+        Debug.Log($"Manager queueing Clip");
         ClipSet clipSet = clipSetSequence.getClipSetAtIndex(clipSetIndex);
+        clipSetIndex++;
 
         currentPercussionClip = percussionClipLibrary.GetClipWithName(clipSet.PercussionClipName);
         currentInputClip = inputClipLibrary.GetClipWithName(clipSet.InputClipName);
         currentLayerClips.Clear();
-        foreach (var name in clipSet.LayerClipNames)
+        foreach (var name in clipSet?.LayerClipNames)
         {
             currentLayerClips.Add(layerClipLibrary.GetClipWithName(name));
         }
@@ -86,13 +96,19 @@ public class MusicClipManager : MonoBehaviour
         }
         musicMixer.QueueClip(clip);
 
-        nextEventTime = AudioSettings.dspTime + clip.Duration;
-        clipSetIndex++;
+        nextEventTime += clip.Duration;
         previousClip = clip;
+    }
 
-        //if (++chordProgressionIndex >= currentChordProgression.chords.Length)
-        //{
-        //    chordProgressionIndex -= currentChordProgression.chords.Length;
-        //}
+    private void LogClipResults(MusicClipResults clipResults)
+    {
+        string results = "";
+        foreach (var inputWindow in clipResults.InputWindowResults)
+        {
+            results += $"Any button: {inputWindow.AnyButtonSelected}\n" +
+                $"Correct button: {inputWindow.CorrectButtonSelected}\n" +
+                $"First button: {inputWindow.FirstButtonSelected}\n";
+        }
+        Debug.Log(results);
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 
 [Serializable]
-public struct ClipSet
+public class ClipSet
 {
     public string PercussionClipName;
     public string InputClipName;

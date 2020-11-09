@@ -45,10 +45,17 @@ public class MusicMixer : MonoBehaviour
     {
         MusicClip nextClip = clipQueue.Dequeue();
 
-        percussionAudioSources[flip].clip = nextClip.PercussionClip.AudioClip;
-        percussionAudioSources[flip].PlayScheduled(nextEventTime);
-        
-        for (int i = 0; i < nextClip.LayerClips.Length; i++)
+        if (nextClip.PercussionClip.AudioClip == null)
+        {
+            percussionAudioSources[flip].clip = null;
+        }
+        else
+        {
+            percussionAudioSources[flip].clip = nextClip.PercussionClip.AudioClip;
+            percussionAudioSources[flip].PlayScheduled(nextEventTime);
+        }
+
+        for (int i = 0; i < nextClip.LayerClips?.Length; i++)
         {
             if (i >= MAX_LAYERED_CLIPS)
             {
@@ -68,7 +75,10 @@ public class MusicMixer : MonoBehaviour
             }
         }
 
-        ClipScheduledEvent?.Invoke(nextClip, nextEventTime);
+        if (nextClip.InputClip != null)
+        {
+            ClipScheduledEvent?.Invoke(nextClip, nextEventTime);
+        }
 
         nextEventTime += nextClip.Duration;
 

@@ -51,3 +51,4 @@ MonoBehaviour:
   layerClipLibrary: {fileID: 11400000, guid: f76b579ecab1062408e8afd5e77084a2, type: 2}
   chordProgressionLibrary: {fileID: 11400000, guid: c33f2954432d4664b92decc3d3815303,
     type: 2}
+  clipSetSequence: {fileID: 11400000, guid: 585799e3802affa45aec7ec74089804d, type: 2}

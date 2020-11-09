@@ -60,4 +60,23 @@ public class PercussionMusicClipLibrary : ScriptableObject
         Debug.LogError($"No percussion clip found with Rhythm: {rhythm} and Tempo: {tempo}");
         return null;
     }
+
+    public PercussionMusicClip GetClipWithName(string name)
+    {
+        if (string.IsNullOrEmpty(name))
+        {
+            return null;
+        }
+
+        foreach (var percussionMusicClip in percussionMusicClips)
+        {
+            if (percussionMusicClip.Name == name)
+            {
+                return percussionMusicClip;
+            }
+        }
+
+        Debug.LogError($"No clip found with name: {name}");
+        return null;
+    }
 }

@@ -32,4 +32,23 @@ public class InputMusicClipLibrary : ScriptableObject
         Debug.LogError($"No clip found with Instrument: {instrument} and Chord: {chord}");
         return null;
     }
+
+    public InputMusicClip GetClipWithName(string name)
+    {
+        if (string.IsNullOrEmpty(name))
+        {
+            return null;
+        }
+
+        foreach (var inputMusicClip in inputMusicClips)
+        {
+            if (inputMusicClip.Name == name)
+            {
+                return inputMusicClip;
+            }
+        }
+
+        Debug.LogError($"No clip found with name: {name}");
+        return null;
+    }
 }

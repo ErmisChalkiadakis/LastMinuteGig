@@ -12,4 +12,9 @@
         InputClip = inputClip;
         LayerClips = layerClips;
     }
+
+    public MusicClip(float tempo, Rhythm rhythm)
+    {
+        PercussionClip = new PercussionMusicClip(tempo, rhythm);
+    }
 }

@@ -29,6 +29,14 @@ public class InstrumentButton : MonoBehaviour, IPointerEnterHandler, IPointerExi
         CreateAudioSources();
     }
 
+    protected void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ButtonSelected();
+        }
+    }
+
     public void SetInstrumentSounds(AudioClip[] audioClips)
     {
         this.audioClips = audioClips;
@@ -50,6 +58,16 @@ public class InstrumentButton : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        ButtonSelected();
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        animator.SetBool(DOWN_HASH, false);
+    }
+
+    private void ButtonSelected()
+    {
         PlayAudioClip();
         animator.SetBool(DOWN_HASH, true);
         ButtonSelectedEvent?.Invoke(buttonId);
@@ -58,11 +76,6 @@ public class InstrumentButton : MonoBehaviour, IPointerEnterHandler, IPointerExi
         {
             SetNextAudioClip();
         }
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        animator.SetBool(DOWN_HASH, false);
     }
 
     private void CreateAudioSources()

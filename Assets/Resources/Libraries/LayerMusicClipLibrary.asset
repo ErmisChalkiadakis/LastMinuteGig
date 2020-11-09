@@ -12,3 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89376bd95dac95f4da5e313d6d6df6b7, type: 3}
   m_Name: LayerMusicClipLibrary
   m_EditorClassIdentifier: 
+  layerMusicClips:
+  - Name: BassGuitar_FourFour_120_C_Simple
+    AudioClip: {fileID: 8300000, guid: b5553eb69d0ece04ea8686269d1294e6, type: 3}
+    Tempo: 120
+    Instrument: 2
+    Key: 3
+    Rhythm: 0
+    Chord: 6
+  - Name: BassGuitar_FourFour_120_G_Simple
+    AudioClip: {fileID: 8300000, guid: 4f52c13591a929a4aa725abae9f83986, type: 3}
+    Tempo: 120
+    Instrument: 2
+    Key: 3
+    Rhythm: 0
+    Chord: 20
+  - Name: BassGuitar_FourFour_120_Am_Simple
+    AudioClip: {fileID: 8300000, guid: b5553eb69d0ece04ea8686269d1294e6, type: 3}
+    Tempo: 120
+    Instrument: 2
+    Key: 3
+    Rhythm: 0
+    Chord: 1
+  - Name: BassGuitar_FourFour_120_F_Simple
+    AudioClip: {fileID: 8300000, guid: a177bcc6b07acf54aa57fb8130749c48, type: 3}
+    Tempo: 120
+    Instrument: 2
+    Key: 3
+    Rhythm: 0
+    Chord: 16

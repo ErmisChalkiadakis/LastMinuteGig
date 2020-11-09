@@ -12,14 +12,17 @@ public class MusicClipManager : MonoBehaviour
     [SerializeField] private InputMusicClipLibrary inputClipLibrary;
     [SerializeField] private LayerMusicClipLibrary layerClipLibrary;
     [SerializeField] private ChordProgressionLibrary chordProgressionLibrary;
+    [SerializeField] private ClipSetSequence clipSetSequence;
 
-    private ChordProgression currentChordProgression;
-    private int chordProgressionIndex = 0;
-    private Key currentKey;
+    //private ChordProgression currentChordProgression;
+    //private int chordProgressionIndex = 0;
+    //private Key currentKey;
+    private int clipSetIndex;
+    private MusicClip previousClip;
 
     private PercussionMusicClip currentPercussionClip;
     private InputMusicClip currentInputClip;
-    private LayerMusicClip[] currentLayerClips;
+    private List<LayerMusicClip> currentLayerClips;
 
     private List<MusicClipResults> clipResults;
 
@@ -30,12 +33,13 @@ public class MusicClipManager : MonoBehaviour
         inputManager.ClipInputFinalizedEvent += OnClipInputFinalizedEvent;
 
         clipResults = new List<MusicClipResults>();
+        currentLayerClips = new List<LayerMusicClip>();
     }
 
     protected void Start()
     {
-        currentKey = Key.C;
-        currentChordProgression = chordProgressionLibrary.GetRandomChordProgression();
+        //currentKey = Key.C;
+        //currentChordProgression = chordProgressionLibrary.GetRandomChordProgression();
         QueueNextClip();
     }
 
@@ -59,24 +63,36 @@ public class MusicClipManager : MonoBehaviour
 
     private void QueueNextClip()
     {
-        ChordNotation notation = currentChordProgression.chords[chordProgressionIndex];
-        Chord chordToGet = KeyNotationToChordHelper.GetChord(currentKey, notation);
+        //ChordNotation notation = currentChordProgression.chords[chordProgressionIndex];
+        //Chord chordToGet = KeyNotationToChordHelper.GetChord(currentKey, notation);
+        ClipSet clipSet = clipSetSequence.getClipSetAtIndex(clipSetIndex);
 
-        currentPercussionClip = percussionClipLibrary.GetRandomClip();
-        currentInputClip = inputClipLibrary.GetClipWithInstrumentAndChord(Instrument.ElectricGuitar, chordToGet);
+        currentPercussionClip = percussionClipLibrary.GetClipWithName(clipSet.PercussionClipName);
+        currentInputClip = inputClipLibrary.GetClipWithName(clipSet.InputClipName);
+        currentLayerClips.Clear();
+        foreach (var name in clipSet.LayerClipNames)
+        {
+            currentLayerClips.Add(layerClipLibrary.GetClipWithName(name));
+        }
 
-        // TODO fix this
-        //LayerMusicClip layerClip = layerClipLibrary.GetRandomClip();
-
-        MusicClip clip = new MusicClip(currentPercussionClip, currentInputClip, new LayerMusicClip[0]);
+        MusicClip clip;
+        if (currentPercussionClip == null && currentInputClip == null)
+        {
+            clip = new MusicClip(previousClip.PercussionClip.Tempo, previousClip.PercussionClip.Rhythm);
+        }
+        else
+        {
+            clip = new MusicClip(currentPercussionClip, currentInputClip, currentLayerClips.ToArray());
+        }
         musicMixer.QueueClip(clip);
 
         nextEventTime = AudioSettings.dspTime + clip.Duration;
+        clipSetIndex++;
+        previousClip = clip;
 
-
-        if (++chordProgressionIndex >= currentChordProgression.chords.Length)
-        {
-            chordProgressionIndex -= currentChordProgression.chords.Length;
-        }
+        //if (++chordProgressionIndex >= currentChordProgression.chords.Length)
+        //{
+        //    chordProgressionIndex -= currentChordProgression.chords.Length;
+        //}
     }
 }

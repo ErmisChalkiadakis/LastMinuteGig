@@ -17,7 +17,6 @@ MonoBehaviour:
     AudioClip: {fileID: 8300000, guid: 548c9d521fb24c94aad00de5981bfa5e, type: 3}
     Tempo: 96
     Instrument: 0
-    Key: 0
     Rhythm: 0
     ButtonTimings:
     - Timing: 0
@@ -32,7 +31,6 @@ MonoBehaviour:
     AudioClip: {fileID: 8300000, guid: 1bb2315fc6eb15f4da8bacccda4df90e, type: 3}
     Tempo: 120
     Instrument: 0
-    Key: 0
     Rhythm: 0
     ButtonTimings:
     - Timing: 0
@@ -40,6 +38,20 @@ MonoBehaviour:
     - Timing: 0.25
       ButtonID: 1
     - Timing: 0.5
+      ButtonID: 1
+    - Timing: 0.75
+      ButtonID: 1
+  - Name: DrumsEightEight120
+    AudioClip: {fileID: 8300000, guid: dc4bf9a4c0c453c43a56ec811c1505b9, type: 3}
+    Tempo: 120
+    Instrument: 0
+    Rhythm: 0
+    ButtonTimings:
+    - Timing: 0
+      ButtonID: 1
+    - Timing: 0.25
+      ButtonID: 1
+    - Timing: 0.625
       ButtonID: 1
     - Timing: 0.75
       ButtonID: 1

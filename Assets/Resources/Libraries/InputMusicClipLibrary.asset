@@ -37,3 +37,9 @@ MonoBehaviour:
     AudioClips:
     - {fileID: 8300000, guid: 73da9e129455e284887767e68bf79ae6, type: 3}
     - {fileID: 8300000, guid: eeb751badeeca3b4e85ac1e6b00f5b42, type: 3}
+  - Name: ElectricGuitar_A
+    Instrument: 1
+    Chord: 0
+    AudioClips:
+    - {fileID: 8300000, guid: 3e265cd9541760840896a506747ea57f, type: 3}
+    - {fileID: 8300000, guid: b891baa342e60af428fd1faff8bb6c01, type: 3}

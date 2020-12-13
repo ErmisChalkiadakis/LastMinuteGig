@@ -15,3 +15,5 @@ MonoBehaviour:
   chordProgressions:
   - name: I - V - vi - IV
     chords: 00000000040000000500000003000000
+  - name: I - V
+    chords: 0000000004000000

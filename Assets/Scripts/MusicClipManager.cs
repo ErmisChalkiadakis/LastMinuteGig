@@ -19,9 +19,8 @@ public class MusicClipManager : MonoBehaviour
     [SerializeField] private ChordProgressionLibrary chordProgressionLibrary;
     [SerializeField] private ClipSetSequence clipSetSequence;
 
-    //private ChordProgression currentChordProgression;
-    //private int chordProgressionIndex = 0;
-    //private Key currentKey;
+    private MusicClipSet activeClipSet;
+
     private int clipSetIndex;
     private MusicClip previousClip;
 
@@ -39,6 +38,8 @@ public class MusicClipManager : MonoBehaviour
 
         clipResults = new List<MusicClipResults>();
         currentLayerClips = new List<LayerMusicClip>();
+        IMusicClipSetProvider provider = new GenericMusicClipProvider();
+        activeClipSet = provider.GetFirstClipSet();
     }
 
     protected void Start()

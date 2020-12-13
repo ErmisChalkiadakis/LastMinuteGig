@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = System.Random;
 
 public class D2TestScreen : MonoBehaviour
@@ -26,12 +27,7 @@ public class D2TestScreen : MonoBehaviour
 
     private void FinishTest()
     {
-        // TODO: Handle application flow.
-        Debug.Log($"Test Finished");
-        for (int i = 0; i < testSampleResults.Length; i++)
-        {
-            Debug.Log($"Case {i}: {testSampleResults[i]}");
-        }
+        SceneManager.LoadScene(0);
     }
 
     private void OnTestSampleFinishedEvent(D2TestSampleResults results)

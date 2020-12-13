@@ -15,7 +15,7 @@ MonoBehaviour:
   percussionMusicClips:
   - Name: DrumsFourFour96
     AudioClip: {fileID: 8300000, guid: 548c9d521fb24c94aad00de5981bfa5e, type: 3}
-    Tempo: 96
+    Tempo: 0
     Instrument: 0
     Rhythm: 0
     ButtonTimings:
@@ -29,7 +29,7 @@ MonoBehaviour:
       ButtonID: 1
   - Name: DrumsFourFour120
     AudioClip: {fileID: 8300000, guid: 1bb2315fc6eb15f4da8bacccda4df90e, type: 3}
-    Tempo: 120
+    Tempo: 1
     Instrument: 0
     Rhythm: 0
     ButtonTimings:
@@ -43,9 +43,9 @@ MonoBehaviour:
       ButtonID: 1
   - Name: DrumsEightEight120
     AudioClip: {fileID: 8300000, guid: dc4bf9a4c0c453c43a56ec811c1505b9, type: 3}
-    Tempo: 120
+    Tempo: 1
     Instrument: 0
-    Rhythm: 0
+    Rhythm: 2
     ButtonTimings:
     - Timing: 0
       ButtonID: 1

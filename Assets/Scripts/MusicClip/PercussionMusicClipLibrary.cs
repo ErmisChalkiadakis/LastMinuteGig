@@ -19,7 +19,7 @@ public class PercussionMusicClipLibrary : ScriptableObject
         return null;
     }
 
-    public PercussionMusicClip GetRandomClipWithTempo(float tempo)
+    public PercussionMusicClip GetRandomClipWithTempo(Tempo tempo)
     {
         foreach (var percussionMusicClip in percussionMusicClips)
         {
@@ -47,7 +47,7 @@ public class PercussionMusicClipLibrary : ScriptableObject
         return null;
     }
 
-    public PercussionMusicClip GetRandomClipWithRhythmAndTempo(Rhythm rhythm, float tempo)
+    public PercussionMusicClip GetRandomClipWithRhythmAndTempo(Rhythm rhythm, Tempo tempo)
     {
         foreach (var percussionMusicClip in percussionMusicClips)
         {

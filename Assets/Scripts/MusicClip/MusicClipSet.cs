@@ -1,6 +1,7 @@
 ﻿public class MusicClipSet
 {
     public int ClipCount => MusicClips.Length;
+    public bool IsEmpty;
     public double Duration
     {
         get
@@ -18,11 +19,12 @@
     public Rhythm Rhythm;
     public Tempo Tempo;
 
-    public MusicClipSet(MusicClip[] musicClips, Key key, Rhythm rhythm, Tempo tempo)
+    public MusicClipSet(MusicClip[] musicClips, Key key, Rhythm rhythm, Tempo tempo, bool isEmpty)
     {
         MusicClips = musicClips;
         Key = key;
         Rhythm = rhythm;
         Tempo = tempo;
+        IsEmpty = isEmpty;
     }
 }

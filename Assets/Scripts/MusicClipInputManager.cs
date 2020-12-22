@@ -56,17 +56,17 @@ public class MusicClipInputManager : MonoBehaviour
 
     private List<InputWindow> currentInputWindows;
     private List<InputWindow> nextInputWindows;
+    private int currentId;
+    private int nextId;
 
     private InputWindow activeInputWindow;
-    private MusicClipResults activeClipResults = new MusicClipResults(); 
+    private MusicClipResults activeClipResults = new MusicClipResults(0f); 
     
     protected void Awake()
     {
         musicMixer.ClipScheduledEvent += OnClipScheduledEvent;
 
         middleButton.ButtonSelectedEvent += OnMiddleButtonSelectedEvent;
-        //upButton.ButtonSelectedEvent += OnUpButtonSelectedEvent;
-        //downButton.ButtonSelectedEvent += OnDownButtonSelectedEvent;
 
         currentInputWindows = new List<InputWindow>();
         nextInputWindows = new List<InputWindow>();
@@ -77,8 +77,6 @@ public class MusicClipInputManager : MonoBehaviour
         musicMixer.ClipScheduledEvent -= OnClipScheduledEvent;
 
         middleButton.ButtonSelectedEvent -= OnMiddleButtonSelectedEvent;
-        //upButton.ButtonSelectedEvent -= OnUpButtonSelectedEvent;
-        //downButton.ButtonSelectedEvent -= OnDownButtonSelectedEvent;
     }
 
     protected void Update()
@@ -120,6 +118,8 @@ public class MusicClipInputManager : MonoBehaviour
     
     private void ClipFinishedCleanup()
     {
+        activeClipResults.ID = currentId;
+        currentId = nextId;
         ClipInputFinalizedEvent?.Invoke(activeClipResults);
         activeClipResults.InputWindowResults.Clear();
     }
@@ -127,6 +127,7 @@ public class MusicClipInputManager : MonoBehaviour
     private void OnClipScheduledEvent(MusicClip scheduledClip, double startingTime)
     {
         nextInputWindows.Clear();
+        nextId = scheduledClip.ID;
         foreach (ButtonTiming buttonTiming in scheduledClip.PercussionClip.ButtonTimings)
         {
             double min = startingTime + (scheduledClip.Duration * buttonTiming.Timing) - inputWindowLeniency;
@@ -147,10 +148,9 @@ public class MusicClipInputManager : MonoBehaviour
             yield return null;
         }
 
+        activeClipResults = new MusicClipResults(scheduledTime);
         currentInputWindows = nextInputWindows;
         middleButton.SetInstrumentSounds(scheduledClip.InputClip.AudioClips);
-        //upButton.SetInstrumentSound(scheduledClip.UpButtonInstrumentSound);
-        //downButton.SetInstrumentSound(scheduledClip.DownButtonInstrumentSound);
     }
 
     private IEnumerator ClipFinished(double endingTime)
@@ -162,6 +162,7 @@ public class MusicClipInputManager : MonoBehaviour
     
     private void OnMiddleButtonSelectedEvent(ButtonID buttonId)
     {
+        activeClipResults.ButtonPressTimes.Add(AudioSettings.dspTime);
         activeInputWindow?.ButtonSelected(buttonId);
     }
 

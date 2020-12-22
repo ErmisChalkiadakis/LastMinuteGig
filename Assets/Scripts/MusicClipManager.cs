@@ -27,6 +27,7 @@ public class MusicClipManager : MonoBehaviour
     private PercussionMusicClip currentPercussionClip;
     private InputMusicClip currentInputClip;
     private List<LayerMusicClip> currentLayerClips;
+    private int clipId = 0;
 
     private List<MusicClipResults> clipResults;
 
@@ -89,12 +90,13 @@ public class MusicClipManager : MonoBehaviour
         MusicClip clip;
         if (currentPercussionClip == null && currentInputClip == null)
         {
-            clip = new MusicClip(previousClip.PercussionClip.Tempo, previousClip.PercussionClip.Rhythm);
+            clip = new MusicClip(clipId, previousClip.PercussionClip.Tempo, previousClip.PercussionClip.Rhythm);
         }
         else
         {
-            clip = new MusicClip(currentPercussionClip, currentInputClip, currentLayerClips.ToArray());
+            clip = new MusicClip(clipId, currentPercussionClip, currentInputClip, currentLayerClips.ToArray());
         }
+        clipId++;
         musicMixer.QueueClip(clip);
 
         nextEventTime += clip.Duration;

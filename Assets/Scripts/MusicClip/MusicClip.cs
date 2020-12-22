@@ -1,5 +1,6 @@
 ﻿public class MusicClip
 {
+    public int ID;
     public PercussionMusicClip PercussionClip;
     public InputMusicClip InputClip;
     public LayerMusicClip[] LayerClips;
@@ -13,8 +14,17 @@
         LayerClips = layerClips;
     }
 
-    public MusicClip(Tempo tempo, Rhythm rhythm)
+    public MusicClip(int id, PercussionMusicClip percussionClip, InputMusicClip inputClip, LayerMusicClip[] layerClips)
     {
+        ID = id;
+        PercussionClip = percussionClip;
+        InputClip = inputClip;
+        LayerClips = layerClips;
+    }
+
+    public MusicClip(int id, Tempo tempo, Rhythm rhythm)
+    {
+        ID = id;
         PercussionClip = new PercussionMusicClip(tempo, rhythm);
     }
 }

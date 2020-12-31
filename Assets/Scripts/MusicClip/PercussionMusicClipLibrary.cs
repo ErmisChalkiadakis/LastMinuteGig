@@ -49,6 +49,7 @@ public class PercussionMusicClipLibrary : ScriptableObject
 
     public PercussionMusicClip GetRandomClipWithRhythmAndTempo(Rhythm rhythm, Tempo tempo)
     {
+        //TODO: Make it actually random
         foreach (var percussionMusicClip in percussionMusicClips)
         {
             if (percussionMusicClip.Rhythm == rhythm && percussionMusicClip.Tempo == tempo)
@@ -59,6 +60,18 @@ public class PercussionMusicClipLibrary : ScriptableObject
 
         Debug.LogError($"No percussion clip found with Rhythm: {rhythm} and Tempo: {tempo}");
         return null;
+    }
+
+    public Tempo GetTempoOtherThan(Tempo tempo)
+    {
+        // TODO: Implement.
+        return Tempo.t120;
+    }
+
+    public Rhythm GetRhythmOtherThan(Rhythm rhythm)
+    {
+        // TODO: Implement.
+        return Rhythm.FourFour;
     }
 
     public PercussionMusicClip GetClipWithName(string name)

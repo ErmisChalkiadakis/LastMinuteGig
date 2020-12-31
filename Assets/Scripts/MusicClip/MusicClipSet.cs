@@ -18,13 +18,15 @@
     public Key Key;
     public Rhythm Rhythm;
     public Tempo Tempo;
+    public ChordProgression ChordProgression;
 
-    public MusicClipSet(MusicClip[] musicClips, Key key, Rhythm rhythm, Tempo tempo, bool isEmpty)
+    public MusicClipSet(MusicClip[] musicClips, Key key, Rhythm rhythm, Tempo tempo, ChordProgression chordProgression, bool isEmpty)
     {
         MusicClips = musicClips;
         Key = key;
         Rhythm = rhythm;
         Tempo = tempo;
+        ChordProgression = chordProgression;
         IsEmpty = isEmpty;
     }
 }

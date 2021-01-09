@@ -8,6 +8,8 @@ public static class RhythmModifierHelper
         {
             case Rhythm.FourFour:
                 return 4;
+            case Rhythm.EightEight:
+                return 4;
             case Rhythm.ThreeFour:
                 return 3;
             default:

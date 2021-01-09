@@ -55,3 +55,41 @@ MonoBehaviour:
       ButtonID: 1
     - Timing: 0.75
       ButtonID: 1
+  - Name: DrumsEightEight96
+    AudioClip: {fileID: 8300000, guid: 3ad022f7eaff5554d919fc09c2138d4e, type: 3}
+    Tempo: 0
+    Instrument: 0
+    Rhythm: 2
+    ButtonTimings:
+    - Timing: 0
+      ButtonID: 1
+    - Timing: 0.25
+      ButtonID: 1
+    - Timing: 0.625
+      ButtonID: 1
+    - Timing: 0.75
+      ButtonID: 1
+  - Name: DrumsThreeFour120
+    AudioClip: {fileID: 8300000, guid: 63f55ab75b88fd643815e72bec57526a, type: 3}
+    Tempo: 1
+    Instrument: 0
+    Rhythm: 1
+    ButtonTimings:
+    - Timing: 0
+      ButtonID: 1
+    - Timing: 0.333
+      ButtonID: 1
+    - Timing: 0.666
+      ButtonID: 1
+  - Name: DrumsThreeFour96
+    AudioClip: {fileID: 8300000, guid: 7bd4cca2920b58a42b46f15398410d63, type: 3}
+    Tempo: 0
+    Instrument: 0
+    Rhythm: 1
+    ButtonTimings:
+    - Timing: 0
+      ButtonID: 1
+    - Timing: 0.333
+      ButtonID: 1
+    - Timing: 0.666
+      ButtonID: 1

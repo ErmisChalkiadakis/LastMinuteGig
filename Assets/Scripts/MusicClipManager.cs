@@ -23,6 +23,7 @@ public class MusicClipManager : MonoBehaviour
 
     private int clipSetIndex;
     private MusicClip previousClip;
+    private IMusicClipSetProvider clipSetProvider;
 
     private PercussionMusicClip currentPercussionClip;
     private InputMusicClip currentInputClip;
@@ -39,8 +40,9 @@ public class MusicClipManager : MonoBehaviour
 
         clipResults = new List<MusicClipResults>();
         currentLayerClips = new List<LayerMusicClip>();
-        IMusicClipSetProvider provider = new GenericMusicClipProvider();
-        activeClipSet = provider.GetFirstClipSet();
+        clipSetProvider = new GenericMusicClipProvider();
+        activeClipSet = clipSetProvider.GetFirstClipSet();
+        clipSetIndex = 0;
     }
 
     protected void Start()
@@ -63,44 +65,32 @@ public class MusicClipManager : MonoBehaviour
 
     private void OnClipInputFinalizedEvent(MusicClipResults clipResults)
     {
-        Debug.Log($"Manager knowing clip is finalized");
+        Debug.Log($"Manager knowing clip is finalized. Saving results.");
         this.clipResults.Add(clipResults);
-
-        if (clipSetSequence.SequenceLength <= clipSetIndex)
-        {
-            nextEventTime = double.MaxValue;
-            SequenceEndedEvent?.Invoke();
-        }
     }
 
     private void QueueNextClip()
     {
+        bool activeClipSetEnded = clipSetIndex >= activeClipSet.MusicClips.Length;
+        if (activeClipSetEnded)
+        {
+            activeClipSet = clipSetProvider.GetNextClipSet(clipResults.ToArray());
+            clipSetIndex = 0;
+        }
+
+        if (activeClipSet.IsEmpty)
+        {
+            Debug.Log($"Protocol Ending");
+            nextEventTime = double.MaxValue;
+            SequenceEndedEvent?.Invoke();
+            return;
+        }
+
         Debug.Log($"Manager queueing Clip");
-        ClipSet clipSet = clipSetSequence.getClipSetAtIndex(clipSetIndex);
-        clipSetIndex++;
-
-        currentPercussionClip = percussionClipLibrary.GetClipWithName(clipSet.PercussionClipName);
-        currentInputClip = inputClipLibrary.GetClipWithName(clipSet.InputClipName);
-        currentLayerClips.Clear();
-        foreach (var name in clipSet?.LayerClipNames)
-        {
-            currentLayerClips.Add(layerClipLibrary.GetClipWithName(name));
-        }
-
-        MusicClip clip;
-        if (currentPercussionClip == null && currentInputClip == null)
-        {
-            clip = new MusicClip(clipId, previousClip.PercussionClip.Tempo, previousClip.PercussionClip.Rhythm);
-        }
-        else
-        {
-            clip = new MusicClip(clipId, currentPercussionClip, currentInputClip, currentLayerClips.ToArray());
-        }
-        clipId++;
+        MusicClip clip = activeClipSet.MusicClips[clipSetIndex];
         musicMixer.QueueClip(clip);
-
         nextEventTime += clip.Duration;
-        previousClip = clip;
+        clipSetIndex++;
     }
 
     private void LogClipResults(MusicClipResults clipResults)

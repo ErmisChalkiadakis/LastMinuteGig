@@ -13,7 +13,6 @@ public class ClipSetSequence : ScriptableObject
             return clipSets[index];
         }
 
-        //Debug.LogError($"Index out of bounds");
         return new ClipSet();
     }
 }

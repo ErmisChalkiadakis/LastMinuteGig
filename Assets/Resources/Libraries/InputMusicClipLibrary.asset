@@ -13,145 +13,145 @@ MonoBehaviour:
   m_Name: InputMusicClipLibrary
   m_EditorClassIdentifier: 
   inputMusicClips:
-  - Name: ElectricGuitar_AMajor
+  - Name: ElectricGuitar_A
     Instrument: 1
     Chord: 0
     AudioClips:
     - {fileID: 8300000, guid: 3e265cd9541760840896a506747ea57f, type: 3}
     - {fileID: 8300000, guid: b891baa342e60af428fd1faff8bb6c01, type: 3}
-  - Name: ElectricGuitar_AMinor
+  - Name: ElectricGuitar_Am
     Instrument: 1
     Chord: 1
     AudioClips:
     - {fileID: 8300000, guid: 33f10739e3ba77043835d0939334dab0, type: 3}
     - {fileID: 8300000, guid: eb5662f656e1dfb41a13b61389433606, type: 3}
-  - Name: ElectricGuitar_ASharpMajor
+  - Name: ElectricGuitar_A#
     Instrument: 1
     Chord: 2
     AudioClips:
     - {fileID: 8300000, guid: ca880a6dce24681499e346390ee7fc97, type: 3}
     - {fileID: 8300000, guid: 0c661cf67837bc54cbdf6d143ee5a473, type: 3}
-  - Name: ElectricGuitar_ASharpMinor
+  - Name: ElectricGuitar_A#m
     Instrument: 1
     Chord: 3
     AudioClips:
     - {fileID: 8300000, guid: 94a6e6772fb64f24788ac83ea6d473d6, type: 3}
     - {fileID: 8300000, guid: b64518fd95bf714488854d8ebad2d720, type: 3}
-  - Name: ElectricGuitar_BMajor
+  - Name: ElectricGuitar_B
     Instrument: 1
     Chord: 4
     AudioClips:
     - {fileID: 8300000, guid: 8e50409456163f442ad1a232b6e8e250, type: 3}
     - {fileID: 8300000, guid: 5862204ab1799c14280c18450d0c2e17, type: 3}
-  - Name: ElectricGuitar_BMinor
+  - Name: ElectricGuitar_Bm
     Instrument: 1
     Chord: 5
     AudioClips:
     - {fileID: 8300000, guid: f7b2ef63e243b734ea359a82d4ee5706, type: 3}
     - {fileID: 8300000, guid: 6fb6a2f9d1210674f985ccda64a973fb, type: 3}
-  - Name: ElectricGuitar_CMajor
+  - Name: ElectricGuitar_C
     Instrument: 1
     Chord: 6
     AudioClips:
     - {fileID: 8300000, guid: 91f02f64b09aac041adf6088d7ef8cba, type: 3}
     - {fileID: 8300000, guid: 424fa1a360304f64c8b4a0a3659b479d, type: 3}
-  - Name: ElectricGuitar_CMinor
+  - Name: ElectricGuitar_Cm
     Instrument: 1
     Chord: 7
     AudioClips:
     - {fileID: 8300000, guid: e40b1f89848a9044cb0e219ed396a9ab, type: 3}
     - {fileID: 8300000, guid: c4c2d9ec95001ce4e8082036b58b878c, type: 3}
-  - Name: ElectricGuitar_CSharpMajor
+  - Name: ElectricGuitar_C#
     Instrument: 1
     Chord: 8
     AudioClips:
     - {fileID: 8300000, guid: 29fb91dbff1ccd941bf5429987812820, type: 3}
     - {fileID: 8300000, guid: cf0dfcef1d49a7d40a4201954ce00ffb, type: 3}
-  - Name: ElectricGuitar_CSharpMinor
+  - Name: ElectricGuitar_C#m
     Instrument: 1
     Chord: 9
     AudioClips:
     - {fileID: 8300000, guid: 7e996b5c181a05c4abb6f261a6bc3fdd, type: 3}
     - {fileID: 8300000, guid: 3e79a30c1101b324591d3f4d1a397b0d, type: 3}
-  - Name: ElectricGuitar_DMajor
+  - Name: ElectricGuitar_D
     Instrument: 1
     Chord: 10
     AudioClips:
     - {fileID: 8300000, guid: bf2aea96d0aa69545b37d1c6d75d88af, type: 3}
     - {fileID: 8300000, guid: d324f61fdf844dc43abf0077749fbc15, type: 3}
-  - Name: ElectricGuitar_DMinor
+  - Name: ElectricGuitar_Dm
     Instrument: 1
     Chord: 11
     AudioClips:
     - {fileID: 8300000, guid: 91763c789a9b97c4991b55ac1e5b68a3, type: 3}
     - {fileID: 8300000, guid: a8158a8f527299546b4787f45f5eecdc, type: 3}
-  - Name: ElectricGuitar_DSharpMajor
+  - Name: ElectricGuitar_D#
     Instrument: 1
     Chord: 12
     AudioClips:
     - {fileID: 8300000, guid: 6d17250884bc517449422c7d49d2dbac, type: 3}
     - {fileID: 8300000, guid: 8828ee948fd5d8e4ab5cdc533694fc99, type: 3}
-  - Name: ElectricGuitar_DSharpMinor
+  - Name: ElectricGuitar_D#m
     Instrument: 1
     Chord: 13
     AudioClips:
     - {fileID: 8300000, guid: 994f664ddb878af4d901bfaef52510af, type: 3}
     - {fileID: 8300000, guid: b969cd0696265e040b38b13998e52e96, type: 3}
-  - Name: ElectricGuitar_EMajor
+  - Name: ElectricGuitar_E
     Instrument: 1
     Chord: 14
     AudioClips:
     - {fileID: 8300000, guid: 6c420e3092ad0484792edb978cf48f04, type: 3}
     - {fileID: 8300000, guid: bbabc76520535694e9145f2ae0b2d2e4, type: 3}
-  - Name: ElectricGuitar_EMinor
+  - Name: ElectricGuitar_Em
     Instrument: 1
     Chord: 15
     AudioClips:
     - {fileID: 8300000, guid: 96582a3094381d24ca50a95906594265, type: 3}
     - {fileID: 8300000, guid: 45b30d619150d7245b27b3a106a8db95, type: 3}
-  - Name: ElectricGuitar_FMajor
+  - Name: ElectricGuitar_F
     Instrument: 1
     Chord: 16
     AudioClips:
     - {fileID: 8300000, guid: 417773916ad3ff04fab32f11c0242312, type: 3}
     - {fileID: 8300000, guid: 7f319fb09aa77e0479387f4ee80f715c, type: 3}
-  - Name: ElectricGuitar_FMinor
+  - Name: ElectricGuitar_Fm
     Instrument: 1
     Chord: 17
     AudioClips:
     - {fileID: 8300000, guid: f417b3573d62bc2429ae160a371e49a9, type: 3}
     - {fileID: 8300000, guid: 07cec0d7a0fa088408afd9228ee3f357, type: 3}
-  - Name: ElectricGuitar_FSharpMajor
+  - Name: ElectricGuitar_F#
     Instrument: 1
     Chord: 18
     AudioClips:
     - {fileID: 8300000, guid: a9da605a0bb95ad4dac01a254b729268, type: 3}
     - {fileID: 8300000, guid: e7fa1c444fc9e5f4296d01642c67240c, type: 3}
-  - Name: ElectricGuitar_FSharpMinor
+  - Name: ElectricGuitar_F#m
     Instrument: 1
     Chord: 19
     AudioClips:
     - {fileID: 8300000, guid: 8fefb5d6cbdb0c549a033dc3788df347, type: 3}
     - {fileID: 8300000, guid: f90247d6ecefaeb4bb5c2a5d1ab86aca, type: 3}
-  - Name: ElectricGuitar_GMajor
+  - Name: ElectricGuitar_G
     Instrument: 1
     Chord: 20
     AudioClips:
     - {fileID: 8300000, guid: 73da9e129455e284887767e68bf79ae6, type: 3}
     - {fileID: 8300000, guid: eeb751badeeca3b4e85ac1e6b00f5b42, type: 3}
-  - Name: ElectricGuitar_GMinor
+  - Name: ElectricGuitar_Gm
     Instrument: 1
     Chord: 21
     AudioClips:
     - {fileID: 8300000, guid: e9e54f9ee04444e4ea60675035a9042a, type: 3}
     - {fileID: 8300000, guid: f0159bebcd429a848a82553f4806554e, type: 3}
-  - Name: ElectricGuitar_GSharpMajor
+  - Name: ElectricGuitar_G#
     Instrument: 1
     Chord: 22
     AudioClips:
     - {fileID: 8300000, guid: 2bb087259a4c1e443bee634408f9d22f, type: 3}
     - {fileID: 8300000, guid: d1f2f7439c2f91847ae3d6d6a59a58fa, type: 3}
-  - Name: ElectricGuitar_GSharpMinor
+  - Name: ElectricGuitar_G#m
     Instrument: 1
     Chord: 23
     AudioClips:

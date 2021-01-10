@@ -17,8 +17,6 @@ public class GenericMusicClipProvider : IMusicClipSetProvider
     private List<MusicalChange> musicalChanges;
     private List<MusicalChange> calibrationMusicalChanges;
 
-    private int calibrationCounter;
-
     public GenericMusicClipProvider()
     {
         chordProgressionLibrary = Resources.Load<ChordProgressionLibrary>("Libraries/ChordProgressionLibrary");
@@ -27,6 +25,7 @@ public class GenericMusicClipProvider : IMusicClipSetProvider
         layerLibrary = Resources.Load<LayerMusicClipLibrary>("Libraries/LayerMusicClipLibrary");
 
         clipSets = new List<MusicClipSet>();
+        musicalChanges = new List<MusicalChange>();
         PopulateCalibrationMusicalChanges();
     }
 
@@ -36,6 +35,7 @@ public class GenericMusicClipProvider : IMusicClipSetProvider
         Key key = GetRandomEnum<Key>();
         Rhythm rhythm = GetRandomEnum<Rhythm>();
         Tempo tempo = GetRandomEnum<Tempo>();
+        Debug.Log($"First clip created with Tempo: {tempo}, Rhythm: {rhythm}, Key: {key} and Chord Progression: {chordProgression.name}");
 
         MusicClipSet clipSet = GenerateClipSetWithParameters(key, tempo, rhythm, chordProgression);
         clipSets.Add(clipSet);
@@ -48,14 +48,7 @@ public class GenericMusicClipProvider : IMusicClipSetProvider
         UpdateWeights();
 
         MusicalChange change;
-        if (calibrationCounter < CALIBRATION_COUNT)
-        {
-            change = GetRandomCalibrationMusicalChange();
-        }
-        else
-        {
-            change = FindNextMusicalChange();
-        }
+        change = (calibrationMusicalChanges.Count > 0) ? GetRandomCalibrationMusicalChange() : FindNextMusicalChange();
 
         //TODO: Add chord progression and Key changes periodically
         MusicClipSet musicClipSet = GenerateNextClipSetWithChange(change);
@@ -150,10 +143,13 @@ public class GenericMusicClipProvider : IMusicClipSetProvider
         return change;
     }
 
-    private MusicClipSet GenerateEmptyClipSet()
+    private MusicClipSet GenerateEmptyClipSet(Key key, Tempo tempo, Rhythm rhythm, ChordProgression chordProgression)
     {
-        // TODO: Implement
-        return null;
+        MusicClip emptyClip = new MusicClip(0, tempo, rhythm);
+        MusicClip[] clipArray = new MusicClip[1];
+        clipArray[0] = emptyClip;
+        MusicClipSet emptyClipSet = new MusicClipSet(clipArray, key, rhythm, tempo, chordProgression, true);
+        return emptyClipSet;
     }
 
     private MusicClipSet GenerateClipSetWithParameters(Key key, Tempo tempo, Rhythm rhythm, ChordProgression chordProgression)
@@ -182,11 +178,18 @@ public class GenericMusicClipProvider : IMusicClipSetProvider
 
         if (change == MusicalChange.Tempo)
         {
+            Debug.Log($"Creating a tempo change");
             tempo = GetRandomEnumOtherThan(tempo);
         }
         else if (change == MusicalChange.Rhythm)
         {
+            Debug.Log($"Creating a rhythm change");
             rhythm = GetRandomEnumOtherThan(rhythm);
+        }
+        else if (change == MusicalChange.PlayToRest)
+        {
+            Debug.Log($"Creating a play-rest change");
+            return GenerateEmptyClipSet(key, tempo, rhythm, chordProgression);
         }
 
         nextClipSet = GenerateClipSetWithParameters(key, tempo, rhythm, chordProgression);

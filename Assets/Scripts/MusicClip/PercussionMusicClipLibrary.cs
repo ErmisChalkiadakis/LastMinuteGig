@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
 
@@ -50,17 +51,26 @@ public class PercussionMusicClipLibrary : ScriptableObject
 
     public PercussionMusicClip GetRandomClipWithRhythmAndTempo(Rhythm rhythm, Tempo tempo)
     {
-        //TODO: Make it actually random
+        List<PercussionMusicClip> clips = new List<PercussionMusicClip>();
+
         foreach (var percussionMusicClip in percussionMusicClips)
         {
             if (percussionMusicClip.Rhythm == rhythm && percussionMusicClip.Tempo == tempo)
             {
-                return percussionMusicClip;
+                clips.Add(percussionMusicClip);
             }
         }
 
-        Debug.LogError($"No percussion clip found with Rhythm: {rhythm} and Tempo: {tempo}");
-        return null;
+        if (clips.Count == 0)
+        {
+            Debug.LogError($"No percussion clip found with Rhythm: {rhythm} and Tempo: {tempo}");
+            return null;
+        }
+
+        Random random = new Random();
+
+        int index = random.Next(clips.Count);
+        return clips[index];
     }
 
     public PercussionMusicClip GetClipWithName(string name)

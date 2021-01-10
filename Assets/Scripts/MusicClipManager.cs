@@ -65,7 +65,6 @@ public class MusicClipManager : MonoBehaviour
 
     private void OnClipInputFinalizedEvent(MusicClipResults clipResults)
     {
-        Debug.Log($"Manager knowing clip is finalized. Saving results.");
         this.clipResults.Add(clipResults);
     }
 
@@ -78,15 +77,15 @@ public class MusicClipManager : MonoBehaviour
             clipSetIndex = 0;
         }
 
+        /*
         if (activeClipSet.IsEmpty)
         {
             Debug.Log($"Protocol Ending");
             nextEventTime = double.MaxValue;
             SequenceEndedEvent?.Invoke();
             return;
-        }
+        }*/
 
-        Debug.Log($"Manager queueing Clip");
         MusicClip clip = activeClipSet.MusicClips[clipSetIndex];
         musicMixer.QueueClip(clip);
         nextEventTime += clip.Duration;

@@ -182,11 +182,11 @@ public class GenericMusicClipProvider : IMusicClipSetProvider
 
         if (change == MusicalChange.Tempo)
         {
-            tempo = percussionLibrary.GetTempoOtherThan(tempo);
+            tempo = GetRandomEnumOtherThan(tempo);
         }
         else if (change == MusicalChange.Rhythm)
         {
-            rhythm = percussionLibrary.GetRhythmOtherThan(rhythm);
+            rhythm = GetRandomEnumOtherThan(rhythm);
         }
 
         nextClipSet = GenerateClipSetWithParameters(key, tempo, rhythm, chordProgression);
@@ -197,5 +197,28 @@ public class GenericMusicClipProvider : IMusicClipSetProvider
     private void UpdateWeights()
     {
         // TODO: Implement
+    }
+
+    private T GetRandomEnumOtherThan<T>(T value)
+    {
+        T randomValue = default(T);
+        Array values = Enum.GetValues(typeof(T));
+        if (values.Length < 2)
+        {
+            Debug.LogError($"Enum of type {typeof(T)} doesn't contain more than one value.");
+            return value;
+        }
+
+        Random random = new Random();
+        bool randomValueFound = false;
+        while (!randomValueFound)
+        {
+            randomValue = (T)values.GetValue(random.Next(values.Length));
+            if (!randomValue.Equals(value))
+            {
+                randomValueFound = true;
+            }
+        }
+        return randomValue;
     }
 }

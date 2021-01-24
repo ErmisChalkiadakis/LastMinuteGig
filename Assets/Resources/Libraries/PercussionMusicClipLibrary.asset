@@ -45,7 +45,7 @@ MonoBehaviour:
     AudioClip: {fileID: 8300000, guid: dc4bf9a4c0c453c43a56ec811c1505b9, type: 3}
     Tempo: 1
     Instrument: 0
-    Rhythm: 2
+    Rhythm: 1
     ButtonTimings:
     - Timing: 0
       ButtonID: 1
@@ -59,7 +59,7 @@ MonoBehaviour:
     AudioClip: {fileID: 8300000, guid: 3ad022f7eaff5554d919fc09c2138d4e, type: 3}
     Tempo: 0
     Instrument: 0
-    Rhythm: 2
+    Rhythm: 1
     ButtonTimings:
     - Timing: 0
       ButtonID: 1
@@ -69,27 +69,59 @@ MonoBehaviour:
       ButtonID: 1
     - Timing: 0.75
       ButtonID: 1
-  - Name: DrumsThreeFour120
-    AudioClip: {fileID: 8300000, guid: 63f55ab75b88fd643815e72bec57526a, type: 3}
-    Tempo: 1
-    Instrument: 0
-    Rhythm: 1
-    ButtonTimings:
-    - Timing: 0
-      ButtonID: 1
-    - Timing: 0.333
-      ButtonID: 1
-    - Timing: 0.666
-      ButtonID: 1
-  - Name: DrumsThreeFour96
-    AudioClip: {fileID: 8300000, guid: 7bd4cca2920b58a42b46f15398410d63, type: 3}
+  - Name: DrumsFourRest96
+    AudioClip: {fileID: 8300000, guid: 7dc808dd0e4250544acf282fb783842f, type: 3}
     Tempo: 0
     Instrument: 0
-    Rhythm: 1
+    Rhythm: 2
     ButtonTimings:
     - Timing: 0
       ButtonID: 1
-    - Timing: 0.333
+    - Timing: 0.25
       ButtonID: 1
-    - Timing: 0.666
+    - Timing: 0.75
+      ButtonID: 1
+  - Name: DrumsFourRest120
+    AudioClip: {fileID: 8300000, guid: 8b976670080f6c344bf0ab76191af6ba, type: 3}
+    Tempo: 1
+    Instrument: 0
+    Rhythm: 2
+    ButtonTimings:
+    - Timing: 0
+      ButtonID: 1
+    - Timing: 0.25
+      ButtonID: 1
+    - Timing: 0.75
+      ButtonID: 1
+  - Name: DrumsThreeRest96
+    AudioClip: {fileID: 8300000, guid: 2814ea2e095b33645b42b8d81fbd2c02, type: 3}
+    Tempo: 0
+    Instrument: 0
+    Rhythm: 3
+    ButtonTimings:
+    - Timing: 0
+      ButtonID: 1
+    - Timing: 0.25
+      ButtonID: 1
+    - Timing: 0.5
+      ButtonID: 1
+    - Timing: 0.625
+      ButtonID: 1
+    - Timing: 0.75
+      ButtonID: 1
+  - Name: DrumsThreeRest120
+    AudioClip: {fileID: 8300000, guid: 769b0b7ea3bf4d0409e16c76e5a627c0, type: 3}
+    Tempo: 1
+    Instrument: 0
+    Rhythm: 3
+    ButtonTimings:
+    - Timing: 0
+      ButtonID: 1
+    - Timing: 0.25
+      ButtonID: 1
+    - Timing: 0.5
+      ButtonID: 1
+    - Timing: 0.625
+      ButtonID: 1
+    - Timing: 0.75
       ButtonID: 1

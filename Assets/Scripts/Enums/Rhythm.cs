@@ -1,6 +1,7 @@
 ﻿public enum Rhythm
 {
     FourFour,
-    ThreeFour,
-    EightEight
+    EightEight,
+    FourRest,
+    ThreeRest
 }

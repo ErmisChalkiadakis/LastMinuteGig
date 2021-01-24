@@ -10,10 +10,12 @@ public static class RhythmModifierHelper
                 return 4;
             case Rhythm.EightEight:
                 return 4;
-            case Rhythm.ThreeFour:
-                return 3;
+            case Rhythm.FourRest:
+                return 4;
+            case Rhythm.ThreeRest:
+                return 4;
             default:
-                return 1;
+                return 4;
         }
     }
 }

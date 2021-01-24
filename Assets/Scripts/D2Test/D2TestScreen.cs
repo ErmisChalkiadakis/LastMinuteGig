@@ -27,7 +27,7 @@ public class D2TestScreen : MonoBehaviour
 
     private void FinishTest()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     private void OnTestSampleFinishedEvent(D2TestSampleResults results)

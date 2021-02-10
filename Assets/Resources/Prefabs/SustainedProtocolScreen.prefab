@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 907615125292088855}
+  - component: {fileID: 2300204837232596874}
   m_Layer: 0
   m_Name: SustainedProtocolScreen
   m_TagString: Untagged
@@ -40,6 +41,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2300204837232596874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476938426776269783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353486918a589c6448f7b36267fc1a47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicClipManager: {fileID: 7691223442134798062}
+  stickFigure: {fileID: 0}
 --- !u!1001 &4089090752063822091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -352,6 +367,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6093624519477306477}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7691223442134798062 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4480045681151847043, guid: 4db7d4853a78a744a9e067db085bafa0,
+    type: 3}
+  m_PrefabInstance: {fileID: 6093624519477306477}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190d8a074217bcc4f8fc8eeb6350ec8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6734994298326487265
 PrefabInstance:
   m_ObjectHideFlags: 0

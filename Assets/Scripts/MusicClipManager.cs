@@ -22,13 +22,7 @@ public class MusicClipManager : MonoBehaviour
     private MusicClipSet activeClipSet;
 
     private int clipSetIndex;
-    private MusicClip previousClip;
     private IMusicClipSetProvider clipSetProvider;
-
-    private PercussionMusicClip currentPercussionClip;
-    private InputMusicClip currentInputClip;
-    private List<LayerMusicClip> currentLayerClips;
-    private int clipId = 0;
 
     private List<MusicClipResults> clipResults;
 
@@ -39,7 +33,6 @@ public class MusicClipManager : MonoBehaviour
         inputManager.ClipInputFinalizedEvent += OnClipInputFinalizedEvent;
 
         clipResults = new List<MusicClipResults>();
-        currentLayerClips = new List<LayerMusicClip>();
         clipSetProvider = new GenericMusicClipProvider();
         activeClipSet = clipSetProvider.GetFirstClipSet();
         clipSetIndex = 0;

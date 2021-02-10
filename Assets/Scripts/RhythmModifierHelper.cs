@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public static class RhythmModifierHelper
+﻿public static class RhythmModifierHelper
 {
     public static float GetRhythmModifier(Rhythm rhythm)
     {

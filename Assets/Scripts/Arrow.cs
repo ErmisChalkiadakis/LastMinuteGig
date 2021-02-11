@@ -15,11 +15,6 @@ public class Arrow : MonoBehaviour, IPointerClickHandler
         animator.SetBool(SHOW_HASH, value);
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        Debug.Log($"Mphka suntekne");
-    }
-
     public void OnPointerClick(PointerEventData eventData)
     {
         ArrowClickedEvent?.Invoke();

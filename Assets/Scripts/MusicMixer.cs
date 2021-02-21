@@ -6,7 +6,7 @@ public class MusicMixer : MonoBehaviour
     public delegate void ClipScheduledHandler(MusicClip scheduledClip, double startingTime);
     public event ClipScheduledHandler ClipScheduledEvent;
 
-    private const float FLIP_INTERVAL = 0.5f;
+    private const float FLIP_INTERVAL = 2f;
     private const float DELAY_UNTIL_FIRST = 1f;
     private const int MAX_LAYERED_CLIPS = 5;
 

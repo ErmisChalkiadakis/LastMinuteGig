@@ -678,7 +678,7 @@ PrefabInstance:
     - target: {fileID: 3539771052023064257, guid: 89c192f3c0ac4f840b766d82286ecae2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -352
+      value: -323
       objectReference: {fileID: 0}
     - target: {fileID: 3652057439151608345, guid: 89c192f3c0ac4f840b766d82286ecae2,
         type: 3}
@@ -703,12 +703,27 @@ PrefabInstance:
     - target: {fileID: 5860644375632838274, guid: 89c192f3c0ac4f840b766d82286ecae2,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 15
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6130926256323174678, guid: 89c192f3c0ac4f840b766d82286ecae2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -85
+      value: -86.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130926256323174678, guid: 89c192f3c0ac4f840b766d82286ecae2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -108.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130926256323174678, guid: 89c192f3c0ac4f840b766d82286ecae2,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 582.6499
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130926256323174678, guid: 89c192f3c0ac4f840b766d82286ecae2,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 346.5578
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89c192f3c0ac4f840b766d82286ecae2, type: 3}
@@ -808,6 +823,56 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
+        type: 3}
+      propertyPath: tutorialText.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
+        type: 3}
+      propertyPath: tutorialText.Array.data[3]
+      value: EZHSE
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
+        type: 3}
+      propertyPath: tutorialText.Array.data[4]
+      value: OGDOOOONTA XRONIA PRIN
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
+        type: 3}
+      propertyPath: tutorialText.Array.data[5]
+      value: H8ELENATONLENEANEMO OXI STAVRO PETRH
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
+        type: 3}
+      propertyPath: tutorialText.Array.data[6]
+      value: TON KUNHGAGE
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
+        type: 3}
+      propertyPath: tutorialText.Array.data[7]
+      value: KATAAAARA PANTOU
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
+        type: 3}
+      propertyPath: tutorialText.Array.data[8]
+      value: DENMPOROUSENATHNEDIW3EI HTAN OIDUO ENA
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
+        type: 3}
+      propertyPath: tutorialText.Array.data[9]
+      value: AUTOKTONHSE
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
+        type: 3}
+      propertyPath: tutorialText.Array.data[10]
+      value: EEEEEENA PRWI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
+        type: 3}
+      propertyPath: tutorialText.Array.data[11]
+      value: E3WFUSAGEEKANEKRUO HTAN SKLHRH MERA
       objectReference: {fileID: 0}
     - target: {fileID: 9067221368528954446, guid: 1797548ab44b1a24db553cffbbff6e1a,
         type: 3}

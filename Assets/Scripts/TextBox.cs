@@ -15,7 +15,12 @@ public class TextBox : MonoBehaviour
 
     public void ShowText(string text)
     {
-        StartCoroutine(ClearAndShowText(text));
+        ShowText(text, 0f);
+    }
+
+    public void ShowText(string text, float delay)
+    {
+        StartCoroutine(ClearAndShowText(text, delay));
     }
 
     public void ClearText()
@@ -23,10 +28,12 @@ public class TextBox : MonoBehaviour
         StartCoroutine(WipeScreen());
     }
 
-    private IEnumerator ClearAndShowText(string text)
+    private IEnumerator ClearAndShowText(string text, float delay)
     {
         yield return WipeScreen();
-        
+
+        yield return new WaitForSeconds(delay);
+
         yield return GraduallyShowText(text);
     }
 

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StickFigure_ElectricGuitar_Tutorial_Step5
+  m_Name: StickFigure_ElectricGuitar_Tutorial_CatchGuitar
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -7234,7 +7234,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/LeftArm/LeftArm_Bone
+    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightLeg/RightLeg_Bone/RightShin/RightShin_Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7244,7 +7244,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/LeftArm/LeftArm_Bone
+    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightLeg/RightLeg_Bone/RightShin/RightShin_Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7254,7 +7254,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/LeftArm/LeftArm_Bone
+    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightLeg/RightLeg_Bone/RightShin/RightShin_Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7264,7 +7264,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightArm/RightArm_Bone/RightForearm/RightForearm_Bone
+    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/LeftArm/LeftArm_Bone/LeftForearm/LeftForearm_Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7274,7 +7274,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightArm/RightArm_Bone/RightForearm/RightForearm_Bone
+    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/LeftArm/LeftArm_Bone/LeftForearm/LeftForearm_Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7284,7 +7284,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightArm/RightArm_Bone/RightForearm/RightForearm_Bone
+    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/LeftArm/LeftArm_Bone/LeftForearm/LeftForearm_Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7354,7 +7354,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightArm/RightArm_Bone/RightForearm/RightForearm_Bone/RightHand/RightHand_Bone
+    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/LeftArm/LeftArm_Bone/LeftForearm/LeftForearm_Bone/LeftHand/LeftHand_Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7364,7 +7364,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightArm/RightArm_Bone/RightForearm/RightForearm_Bone/RightHand/RightHand_Bone
+    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/LeftArm/LeftArm_Bone/LeftForearm/LeftForearm_Bone/LeftHand/LeftHand_Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7374,37 +7374,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightArm/RightArm_Bone/RightForearm/RightForearm_Bone/RightHand/RightHand_Bone
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/LeftArm/LeftArm_Bone/LeftForearm/LeftForearm_Bone
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/LeftArm/LeftArm_Bone/LeftForearm/LeftForearm_Bone
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/LeftArm/LeftArm_Bone/LeftForearm/LeftForearm_Bone
+    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/LeftArm/LeftArm_Bone/LeftForearm/LeftForearm_Bone/LeftHand/LeftHand_Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7435,6 +7405,36 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
     path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightArm/RightArm_Bone
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/LeftArm/LeftArm_Bone
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/LeftArm/LeftArm_Bone
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/LeftArm/LeftArm_Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7504,7 +7504,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/LeftArm/LeftArm_Bone/LeftForearm/LeftForearm_Bone/LeftHand/LeftHand_Bone
+    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightArm/RightArm_Bone/RightForearm/RightForearm_Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7514,7 +7514,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/LeftArm/LeftArm_Bone/LeftForearm/LeftForearm_Bone/LeftHand/LeftHand_Bone
+    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightArm/RightArm_Bone/RightForearm/RightForearm_Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7524,7 +7524,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/LeftArm/LeftArm_Bone/LeftForearm/LeftForearm_Bone/LeftHand/LeftHand_Bone
+    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightArm/RightArm_Bone/RightForearm/RightForearm_Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7534,7 +7534,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightLeg/RightLeg_Bone/RightShin/RightShin_Bone
+    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightArm/RightArm_Bone/RightForearm/RightForearm_Bone/RightHand/RightHand_Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7544,7 +7544,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightLeg/RightLeg_Bone/RightShin/RightShin_Bone
+    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightArm/RightArm_Bone/RightForearm/RightForearm_Bone/RightHand/RightHand_Bone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7554,7 +7554,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightLeg/RightLeg_Bone/RightShin/RightShin_Bone
+    path: Sprite/Body/SpineBase_Bone/SpineTop_Bone/RightArm/RightArm_Bone/RightForearm/RightForearm_Bone/RightHand/RightHand_Bone
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0

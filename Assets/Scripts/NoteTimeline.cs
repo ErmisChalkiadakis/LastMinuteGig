@@ -44,12 +44,13 @@ public class NoteTimeline : MonoBehaviour
              percussionLibrary.GetRandomClipWithRhythmAndTempo(Rhythm.EightEight, Tempo.t120),
              inputLibrary.GetClipWithInstrumentAndChord(Instrument.ElectricGuitar, Chord.Cm),
              null);
+        /*
         musicMixer.QueueClip(clip96B);
         musicMixer.QueueClip(clip120B);
         musicMixer.QueueClip(clip120A);
         musicMixer.QueueClip(clip96A);
         musicMixer.QueueClip(clip96B);
-        musicMixer.QueueClip(clip96B);
+        musicMixer.QueueClip(clip96B);*/
     }
 
     protected void OnDisable()

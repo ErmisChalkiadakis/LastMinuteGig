@@ -221,12 +221,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorStateObserver: {fileID: 5912569131022928789}
   fadeToBlackAnimator: {fileID: 5641415381032988414}
+  stickFigureAnimator: {fileID: 0}
   textBox: {fileID: 8797034986620866161}
   arrow: {fileID: 3344860465044192581}
-  tutorialText:
-  - TOUTH H ISTORIA
-  - POU 8AAAA SAS PW
-  - HTANGIAENANANTHROPOTONLEGANE STAVRO KOSMA PETRI
+  tutorialSteps:
+  - Text: This is you.
+    PlayNextAnimation: 1
+    WaitForAnimation: 0
+  - Text: Hi there!
+    PlayNextAnimation: 1
+    WaitForAnimation: 0
+  - Text: Today is the day of your old band's gig.
+    PlayNextAnimation: 0
+    WaitForAnimation: 0
+  - Text: There is no chance that you would miss it!
+    PlayNextAnimation: 0
+    WaitForAnimation: 0
+  - Text: It's their big break!
+    PlayNextAnimation: 0
+    WaitForAnimation: 0
+  - Text: Tony said an agent from that record label was going to come!
+    PlayNextAnimation: 0
+    WaitForAnimation: 0
+  - Text: What was its name again?
+    PlayNextAnimation: 0
+    WaitForAnimation: 0
+  - Text: No matter, there's an emergency.
+    PlayNextAnimation: 0
+    WaitForAnimation: 0
+  - Text: Remember Dennis the guitar player?
+    PlayNextAnimation: 0
+    WaitForAnimation: 0
+  - Text: He's sick!
+    PlayNextAnimation: 1
+    WaitForAnimation: 0
+  - Text: You're going to have to fill in for him.
+    PlayNextAnimation: 1
+    WaitForAnimation: 1
+  - Text: Do you remember how to play the guitar parts?
+    PlayNextAnimation: 1
+    WaitForAnimation: 0
+  - Text: No, huh? That's okay.
+    PlayNextAnimation: 0
+    WaitForAnimation: 0
+  - Text: You're going to have to improvise!
+    PlayNextAnimation: 1
+    WaitForAnimation: 0
+  - Text: You still have a few minutes before the gig starts.
+    PlayNextAnimation: 0
+    WaitForAnimation: 0
+  - Text: Let's practice for a little bit.
+    PlayNextAnimation: 0
+    WaitForAnimation: 0
+  - Text: Pay attention to the beat and try to adapt when it changes.
+    PlayNextAnimation: 0
+    WaitForAnimation: 0
+  - Text: Let's give it a try!
+    PlayNextAnimation: 0
+    WaitForAnimation: 0
+  - Text: Are you ready?
+    PlayNextAnimation: 1
+    WaitForAnimation: 0
+  - Text: Here we go!
+    PlayNextAnimation: 0
+    WaitForAnimation: 0
 --- !u!1 &5164262197591181517
 GameObject:
   m_ObjectHideFlags: 0

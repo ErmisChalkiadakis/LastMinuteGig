@@ -1,10 +1,14 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MusicMixer : MonoBehaviour
 {
     public delegate void ClipScheduledHandler(MusicClip scheduledClip, double startingTime);
     public event ClipScheduledHandler ClipScheduledEvent;
+    public event ClipScheduledHandler ClipQueuedEvent;
+
+    public double StartTime => startTime;
 
     private const float FLIP_INTERVAL = 2f;
     private const float DELAY_UNTIL_FIRST = 1f;
@@ -16,13 +20,15 @@ public class MusicMixer : MonoBehaviour
     private AudioSource[] layerAudioSources = new AudioSource[MAX_LAYERED_CLIPS];
     private AudioSource[] layerAudioSourcesFlipped = new AudioSource[MAX_LAYERED_CLIPS];
     private double nextEventTime;
+    private double startTime;
 
     private Queue<MusicClip> clipQueue = new Queue<MusicClip>();
 
     protected void Awake()
     {
         CreateAudioPlayers();
-        nextEventTime = AudioSettings.dspTime + DELAY_UNTIL_FIRST;
+        startTime = AudioSettings.dspTime + DELAY_UNTIL_FIRST;
+        nextEventTime = startTime;
     }
 
     protected void Update()
@@ -39,6 +45,8 @@ public class MusicMixer : MonoBehaviour
     public void QueueClip(MusicClip musicClip)
     {
         clipQueue.Enqueue(musicClip);
+        double queuedClipStartTime = CalculateQueuedClipStartTime();
+        ClipQueuedEvent?.Invoke(musicClip, queuedClipStartTime);
     }
 
     private void ScheduleNextClipPlay()
@@ -109,5 +117,18 @@ public class MusicMixer : MonoBehaviour
             child.transform.parent = transform;
             layerAudioSourcesFlipped[i] = child.AddComponent<AudioSource>();
         }
+    }
+
+    private double CalculateQueuedClipStartTime()
+    {
+        double time = nextEventTime;
+        List<MusicClip> list = clipQueue.ToArray().ToList();
+        while (list.Count > 1)
+        {
+            time += list[0].Duration;
+            list.RemoveAt(0);
+        }
+
+        return time;
     }
 }

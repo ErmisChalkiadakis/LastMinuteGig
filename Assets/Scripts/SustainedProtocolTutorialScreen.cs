@@ -19,7 +19,6 @@ public class SustainedProtocolTutorialScreen : MonoBehaviour
     [SerializeField] private TutorialStep[] tutorialSteps;
 
     private int index = 0;
-    private AnimatorStateInfo currentStateInfo;
 
     protected void Awake()
     {
@@ -65,7 +64,6 @@ public class SustainedProtocolTutorialScreen : MonoBehaviour
                 StartCoroutine(PlayAnimationAfterSeconds(tutorialSteps[index].PlayAnimationAfterSeconds));
             }
         }
-
     }
 
     private void InitializeStickAnimator()

@@ -45,16 +45,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteLine: {fileID: 3539771052023064257}
-  notePrefab: {fileID: 8236995180449768777, guid: 1f0910b0751865b4988435dc40c7698a,
+  barPrefab: {fileID: 8236995180449768777, guid: 1f0910b0751865b4988435dc40c7698a,
     type: 3}
   changeIndicatorPrefab: {fileID: 9175008159303035952, guid: 4c35627c75f52eb45a60765525bb768d,
     type: 3}
+  separatorLinePrefab: {fileID: 6295336991925775125, guid: 095c76323fa450d4bb8b7ea70e83a14b,
+    type: 3}
   musicMixer: {fileID: 0}
-  widthPerSecond: 450
-  noteColor1: {r: 0.3137255, g: 0.3137255, b: 0.3137255, a: 1}
-  noteColor2: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
-  tempoChangeColor: {r: 1, g: 0.6356951, b: 0, a: 1}
-  rhythmChangeColor: {r: 0, g: 0.7872057, b: 1, a: 1}
+  widthPerSecond: 180
+  noteColor1: {r: 0.8773585, g: 0.8773585, b: 0, a: 1}
+  noteColor2: {r: 0, g: 0.9426913, b: 1, a: 1}
+  tempoChangeColor: {r: 0.87843144, g: 0.87843144, b: 0, a: 1}
+  rhythmChangeColor: {r: 0, g: 0.94117653, b: 1, a: 1}
   percussionLibrary: {fileID: 0}
   inputLibrary: {fileID: 0}
 --- !u!1 &5039626544559644745
@@ -89,7 +91,7 @@ RectTransform:
   m_Children:
   - {fileID: 3539771052023064257}
   m_Father: {fileID: 5796273308324264255}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -280,8 +282,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1387522142883493593}
-  - {fileID: 5860644375632838274}
   - {fileID: 6130926256323174678}
+  - {fileID: 5860644375632838274}
   m_Father: {fileID: 2303783020740554906}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -380,7 +382,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5796273308324264255}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

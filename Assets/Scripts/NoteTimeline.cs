@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class NoteTimeline : MonoBehaviour
 {
-    private const float REMOVAL_WIDTH = 100f;
-
     [SerializeField] private RectTransform noteLine;
-    [SerializeField] private GameObject notePrefab;
+    [SerializeField] private GameObject barPrefab;
     [SerializeField] private GameObject changeIndicatorPrefab;
+    [SerializeField] private GameObject separatorLinePrefab;
     [SerializeField] private MusicMixer musicMixer;
     [SerializeField] private float widthPerSecond = 350f;
     [SerializeField] private Color noteColor1;
@@ -20,14 +17,12 @@ public class NoteTimeline : MonoBehaviour
     [SerializeField] private PercussionMusicClipLibrary percussionLibrary;
     [SerializeField] private InputMusicClipLibrary inputLibrary;
 
-    private double startTime;
-    private bool flip;
+    private bool colorFlip;
     private MusicClip cachedClip;
 
     protected void OnEnable()
     {
-        startTime = AudioSettings.dspTime;
-        musicMixer.ClipScheduledEvent += OnClipScheduledEvent;
+        musicMixer.ClipQueuedEvent += OnClipQueuedEvent;
         MusicClip clip96B = new MusicClip(
             percussionLibrary.GetRandomClipWithRhythmAndTempo(Rhythm.ThreeRest, Tempo.t96),
             inputLibrary.GetClipWithInstrumentAndChord(Instrument.ElectricGuitar, Chord.Cm),
@@ -44,49 +39,53 @@ public class NoteTimeline : MonoBehaviour
              percussionLibrary.GetRandomClipWithRhythmAndTempo(Rhythm.EightEight, Tempo.t120),
              inputLibrary.GetClipWithInstrumentAndChord(Instrument.ElectricGuitar, Chord.Cm),
              null);
-        /*
+        
         musicMixer.QueueClip(clip96B);
         musicMixer.QueueClip(clip120B);
         musicMixer.QueueClip(clip120A);
         musicMixer.QueueClip(clip96A);
         musicMixer.QueueClip(clip96B);
-        musicMixer.QueueClip(clip96B);*/
+        musicMixer.QueueClip(clip96B);
     }
 
     protected void OnDisable()
     {
-        musicMixer.ClipScheduledEvent -= OnClipScheduledEvent;
+        musicMixer.ClipQueuedEvent -= OnClipQueuedEvent;
     }
 
     protected void Update()
     {
-        noteLine.anchoredPosition = new Vector2(noteLine.anchoredPosition.x - Time.deltaTime * widthPerSecond, noteLine.anchoredPosition.y);
+        if (AudioSettings.dspTime > musicMixer.StartTime)
+        {
+            noteLine.anchoredPosition = new Vector2(noteLine.anchoredPosition.x - Time.deltaTime * widthPerSecond, noteLine.anchoredPosition.y);
+        }
     }
 
-    private void OnClipScheduledEvent(MusicClip scheduledClip, double startingTime)
+    private void OnClipQueuedEvent(MusicClip queuedClip, double startingTime)
     {
-        ButtonTiming[] buttonTimings = scheduledClip.PercussionClip.ButtonTimings;
-        HandleMusicalChange(scheduledClip, startingTime);
+        HandleMusicalChange(queuedClip, startingTime);
 
-        foreach (ButtonTiming timing in buttonTimings)
+        AddBar(startingTime, queuedClip.Duration);
+
+        if (cachedClip != null)
         {
-            AddNote(startingTime + scheduledClip.Duration * timing.Timing);
+            InstantiateSeparatorLine(startingTime);
         }
 
-        cachedClip = scheduledClip;
-        flip = !flip;
+        cachedClip = queuedClip;
     }
 
-    private void AddNote(double time)
+    private void AddBar(double time, double duration)
     {
-        double clipTime = time - startTime;
-        GameObject go = GameObject.Instantiate(notePrefab, noteLine.transform);
+        double clipTime = time - musicMixer.StartTime;
+        GameObject go = GameObject.Instantiate(barPrefab, noteLine.transform);
         float timeToDestroy = (float)(time - AudioSettings.dspTime);
-        GameObject.Destroy(go, timeToDestroy + 1f);
-        RectTransform noteRectTransform = go.GetComponent<RectTransform>();
-        noteRectTransform.anchoredPosition = new Vector2((float)(widthPerSecond * clipTime), noteRectTransform.anchoredPosition.y);
+        GameObject.Destroy(go, timeToDestroy + 3f);
+        RectTransform barRectTransform = go.GetComponent<RectTransform>();
+        barRectTransform.sizeDelta = new Vector2((float)(widthPerSecond * duration), barRectTransform.sizeDelta.y);
+        barRectTransform.anchoredPosition = new Vector2((float)(widthPerSecond * clipTime), barRectTransform.anchoredPosition.y);
         RawImage image = go.GetComponent<RawImage>();
-        image.color = flip ? noteColor1 : noteColor2;
+        image.color = colorFlip ? noteColor1 : noteColor2;
     }
 
     private void HandleMusicalChange(MusicClip nextClip, double time)
@@ -98,24 +97,35 @@ public class NoteTimeline : MonoBehaviour
 
         if (cachedClip.PercussionClip.Tempo != nextClip.PercussionClip.Tempo)
         {
+            colorFlip = !colorFlip;
             InstantiateChangeIndicator(tempoChangeColor, $"Tempo Change", time);
         }
         else if (cachedClip.PercussionClip.Rhythm != nextClip.PercussionClip.Rhythm)
         {
+            colorFlip = !colorFlip;
             InstantiateChangeIndicator(rhythmChangeColor, $"Rhythm Change", time);
         }
+    }
+
+    private void InstantiateSeparatorLine(double time)
+    {
+        float timeToDestroy = (float)(time - AudioSettings.dspTime);
+        GameObject go = GameObject.Instantiate(separatorLinePrefab, noteLine.transform);
+        GameObject.Destroy(go, timeToDestroy + 3);
+        RectTransform rectTransform = go.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = new Vector2((float)(widthPerSecond * (time - musicMixer.StartTime)), rectTransform.anchoredPosition.y);
     }
 
     private void InstantiateChangeIndicator(Color color, string text, double time)
     {
         float timeToDestroy = (float)(time - AudioSettings.dspTime);
         GameObject go = GameObject.Instantiate(changeIndicatorPrefab, noteLine.transform);
-        GameObject.Destroy(go, timeToDestroy + 1);
+        GameObject.Destroy(go, timeToDestroy + 3);
         RawImage image = go.GetComponent<RawImage>();
         image.color = color;
         TextMeshProUGUI textMesh = go.GetComponentInChildren<TextMeshProUGUI>();
         textMesh.text = text;
         RectTransform rectTransform = go.GetComponent<RectTransform>();
-        rectTransform.anchoredPosition = new Vector2((float)(widthPerSecond * (time - startTime)), rectTransform.anchoredPosition.y);
+        rectTransform.anchoredPosition = new Vector2((float)(widthPerSecond * (time - musicMixer.StartTime)), rectTransform.anchoredPosition.y);
     }
 }

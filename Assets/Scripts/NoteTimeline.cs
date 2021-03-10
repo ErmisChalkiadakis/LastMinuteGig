@@ -17,35 +17,13 @@ public class NoteTimeline : MonoBehaviour
     [SerializeField] private PercussionMusicClipLibrary percussionLibrary;
     [SerializeField] private InputMusicClipLibrary inputLibrary;
 
+    private bool firstClipQueued;
     private bool colorFlip;
     private MusicClip cachedClip;
 
     protected void OnEnable()
     {
         musicMixer.ClipQueuedEvent += OnClipQueuedEvent;
-        MusicClip clip96B = new MusicClip(
-            percussionLibrary.GetRandomClipWithRhythmAndTempo(Rhythm.ThreeRest, Tempo.t96),
-            inputLibrary.GetClipWithInstrumentAndChord(Instrument.ElectricGuitar, Chord.Cm),
-            null);
-        MusicClip clip120B = new MusicClip(
-            percussionLibrary.GetRandomClipWithRhythmAndTempo(Rhythm.ThreeRest, Tempo.t120),
-            inputLibrary.GetClipWithInstrumentAndChord(Instrument.ElectricGuitar, Chord.Cm),
-            null);
-        MusicClip clip96A = new MusicClip(
-            percussionLibrary.GetRandomClipWithRhythmAndTempo(Rhythm.EightEight, Tempo.t96),
-            inputLibrary.GetClipWithInstrumentAndChord(Instrument.ElectricGuitar, Chord.Cm),
-            null); 
-        MusicClip clip120A = new MusicClip(
-             percussionLibrary.GetRandomClipWithRhythmAndTempo(Rhythm.EightEight, Tempo.t120),
-             inputLibrary.GetClipWithInstrumentAndChord(Instrument.ElectricGuitar, Chord.Cm),
-             null);
-        
-        musicMixer.QueueClip(clip96B);
-        musicMixer.QueueClip(clip120B);
-        musicMixer.QueueClip(clip120A);
-        musicMixer.QueueClip(clip96A);
-        musicMixer.QueueClip(clip96B);
-        musicMixer.QueueClip(clip96B);
     }
 
     protected void OnDisable()
@@ -55,7 +33,7 @@ public class NoteTimeline : MonoBehaviour
 
     protected void Update()
     {
-        if (AudioSettings.dspTime > musicMixer.StartTime)
+        if (firstClipQueued)
         {
             noteLine.anchoredPosition = new Vector2(noteLine.anchoredPosition.x - Time.deltaTime * widthPerSecond, noteLine.anchoredPosition.y);
         }
@@ -63,6 +41,11 @@ public class NoteTimeline : MonoBehaviour
 
     private void OnClipQueuedEvent(MusicClip queuedClip, double startingTime)
     {
+        if (!firstClipQueued)
+        {
+            firstClipQueued = true;
+        }
+
         HandleMusicalChange(queuedClip, startingTime);
 
         AddBar(startingTime, queuedClip.Duration);

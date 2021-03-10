@@ -11,17 +11,26 @@ public class SustainedProtocolTutorialScreen : MonoBehaviour
     private static int CHORD_LAYER_INDEX;
     private static int ROCK_LAYER_INDEX;
 
+    [SerializeField] private MusicMixer musicMixer;
+    [SerializeField] private TutorialMusicClipManager tutorialMusicClipManager;
     [SerializeField] private AnimatorStateObserver animatorStateObserver;
     [SerializeField] private Animator fadeToBlackAnimator;
     [SerializeField] private Animator stickFigureAnimator;
+    [SerializeField] private NoteTimeline noteTimeline;
+    [SerializeField] private Animator noteTimelineAnimator;
+    [SerializeField] private Animator textGroupAnimator;
+    [SerializeField] private AnimatorStateObserver textGroupAnimatorStateObserver;
+    [SerializeField] private InstrumentButton instrumentButton;
     [SerializeField] private TextBox textBox;
     [SerializeField] private Arrow arrow;
+    [SerializeField] private float hideTimelineDelay = 60f;
     [SerializeField] private TutorialStep[] tutorialSteps;
 
     private int index = 0;
 
     protected void Awake()
     {
+        StartTextTutorial();
         fadeToBlackAnimator.SetBool(SHOW_HASH, true);
         animatorStateObserver.AnimatorStateEnteredEvent += OnAnimatorStateEnteredEvent;
         InitializeStickAnimator();
@@ -64,6 +73,10 @@ public class SustainedProtocolTutorialScreen : MonoBehaviour
                 StartCoroutine(PlayAnimationAfterSeconds(tutorialSteps[index].PlayAnimationAfterSeconds));
             }
         }
+        else
+        {
+            StartNoteTimelineTutorialTransition();
+        }
     }
 
     private void InitializeStickAnimator()
@@ -79,10 +92,51 @@ public class SustainedProtocolTutorialScreen : MonoBehaviour
         stickFigureAnimator.SetLayerWeight(PLAY_LAYER_INDEX, 0);
     }
 
+    private void StartTextTutorial()
+    {
+        textGroupAnimator.SetBool(SHOW_HASH, true);
+        instrumentButton.gameObject.SetActive(false);
+        noteTimeline.gameObject.SetActive(false);
+        musicMixer.gameObject.SetActive(false);
+    }
+
+    private void StartNoteTimelineTutorialTransition()
+    {
+        textGroupAnimator.SetBool(SHOW_HASH, false);
+        textGroupAnimatorStateObserver.AnimatorStateEnteredEvent += OnTextGroupAnimatorStateEnteredEvent;
+    }
+
+    private void OnTextGroupAnimatorStateEnteredEvent(string state)
+    {
+        if (state == "IdleOut")
+        {
+            StartNoteTimelineTutorial();
+        }
+    }
+
+    private void StartNoteTimelineTutorial()
+    {
+        textGroupAnimatorStateObserver.AnimatorStateEnteredEvent -= OnTextGroupAnimatorStateEnteredEvent;
+        instrumentButton.gameObject.SetActive(true);
+        noteTimeline.gameObject.SetActive(true);
+        arrow.gameObject.SetActive(false);
+        textBox.gameObject.SetActive(false);
+        noteTimelineAnimator.SetBool(SHOW_HASH, true);
+        StartCoroutine(HideNoteTimelineAfterSeconds(hideTimelineDelay));
+        musicMixer.gameObject.SetActive(true);
+        tutorialMusicClipManager.StartTutorialClips();
+    }
+
     private IEnumerator PlayAnimationAfterSeconds(float delay)
     {
         yield return new WaitForSeconds(delay);
 
         stickFigureAnimator.SetTrigger(NEXT_STEP_HASH);
+    }
+
+    private IEnumerator HideNoteTimelineAfterSeconds(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        noteTimelineAnimator.SetBool(SHOW_HASH, false);
     }
 }

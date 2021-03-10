@@ -807,7 +807,7 @@ PrefabInstance:
     - target: {fileID: 358249349587411620, guid: 1797548ab44b1a24db553cffbbff6e1a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 60.7
+      value: 60.700012
       objectReference: {fileID: 0}
     - target: {fileID: 358249349587411620, guid: 1797548ab44b1a24db553cffbbff6e1a,
         type: 3}
@@ -952,6 +952,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
         type: 3}
+      propertyPath: tutorialSteps.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
+        type: 3}
       propertyPath: tutorialText.Array.data[3]
       value: EZHSE
       objectReference: {fileID: 0}
@@ -1000,106 +1005,6 @@ PrefabInstance:
       propertyPath: stickFigureAnimator
       value: 
       objectReference: {fileID: 410161040}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[1].WaitForAnimation
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[10].WaitForAnimation
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[9].WaitForAnimation
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[0].PlayNextAnimation
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[2].PlayNextAnimation
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[9].PlayNextAnimation
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[12].PlayNextAnimation
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[13].PlayNextAnimation
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[14].PlayNextAnimation
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[18].PlayNextAnimation
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[19].PlayNextAnimation
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[9].ShowTextAfterSeconds
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[10].ShowTextAfterSeconds
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[9].PlayAnimationAfterSeconds
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[0].PlayAnimationAfterSeconds
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[1].PlayAnimationAfterSeconds
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[11].PlayAnimationAfterSeconds
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[19].ShowTextAfterSeconds
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[10].PlayAnimationAfterSeconds
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
-      propertyPath: tutorialSteps.Array.data[19].PlayAnimationAfterSeconds
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 8797034986620866161, guid: 1797548ab44b1a24db553cffbbff6e1a,
         type: 3}
       propertyPath: intervalBetweenCharacters

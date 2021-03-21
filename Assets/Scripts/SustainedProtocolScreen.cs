@@ -9,9 +9,11 @@ public class SustainedProtocolScreen : MonoBehaviour
 
     [SerializeField] private MusicClipManager musicClipManager;
     [SerializeField] private StickFigure stickFigure;
+    [SerializeField] private Animator stickFigureAnimator;
 
     protected void Awake()
     {
+        InitializeStickAnimator();
         musicClipManager.SequenceEndedEvent += OnSequenceEndedEvent;
     }
 
@@ -24,6 +26,14 @@ public class SustainedProtocolScreen : MonoBehaviour
     {
         stickFigure.StopRocking();
         StartCoroutine(GoBackToMainMenuAfterSeconds(PROTOCOL_ENDED_DELAY));
+    }
+
+    private void InitializeStickAnimator()
+    {
+        stickFigureAnimator.SetLayerWeight(stickFigureAnimator.GetLayerIndex("Tutorial"), 0);
+        stickFigureAnimator.SetLayerWeight(stickFigureAnimator.GetLayerIndex("Rhythm"), 1);
+        stickFigureAnimator.SetLayerWeight(stickFigureAnimator.GetLayerIndex("Chord"), 1);
+        stickFigureAnimator.SetLayerWeight(stickFigureAnimator.GetLayerIndex("Play"), 1);
     }
 
     private IEnumerator GoBackToMainMenuAfterSeconds(float delay)

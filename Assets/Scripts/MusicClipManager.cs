@@ -17,15 +17,13 @@ public class MusicClipManager : MonoBehaviour
     [SerializeField] private LayerMusicClipLibrary layerClipLibrary;
     [SerializeField] private ChordProgressionLibrary chordProgressionLibrary;
     [SerializeField] private ClipSetSequence clipSetSequence;
+    [SerializeField] private int clipSetsPerSong = 20;
 
     private MusicClipSet activeClipSet;
 
-    private int clipSetIndex;
     private IMusicClipSetProvider clipSetProvider;
 
     private List<MusicClipResults> clipResults;
-
-    private double nextEventTime = double.MaxValue;
 
     protected void Awake()
     {
@@ -33,13 +31,7 @@ public class MusicClipManager : MonoBehaviour
 
         clipResults = new List<MusicClipResults>();
         clipSetProvider = new GenericMusicClipProvider();
-        activeClipSet = clipSetProvider.GetFirstClipSet();
-        clipSetIndex = 0;
-    }
-
-    protected void Start()
-    {
-        nextEventTime = AudioSettings.dspTime + DELAY_UNTIL_FIRST;
+        QueueClips();
     }
 
     protected void OnDestroy()
@@ -47,41 +39,27 @@ public class MusicClipManager : MonoBehaviour
         inputManager.ClipInputFinalizedEvent -= OnClipInputFinalizedEvent;
     }
 
-    protected void Update()
-    {
-        if (AudioSettings.dspTime + FLIP_INTERVAL > nextEventTime)
-        {
-            QueueNextClip();
-        }
-    }
-
     private void OnClipInputFinalizedEvent(MusicClipResults clipResults)
     {
         this.clipResults.Add(clipResults);
     }
 
-    private void QueueNextClip()
+    private void QueueClips()
     {
-        bool activeClipSetEnded = clipSetIndex >= activeClipSet.MusicClips.Length;
-        if (activeClipSetEnded)
+        activeClipSet = clipSetProvider.GetFirstClipSet();
+        for (int i = 0; i < activeClipSet.ClipCount; i++)
         {
-            activeClipSet = clipSetProvider.GetNextClipSet(clipResults.ToArray());
-            clipSetIndex = 0;
+            musicMixer.QueueClip(activeClipSet.MusicClips[i]);
         }
 
-        /*
-        if (activeClipSet.IsEmpty)
+        for (int j = 0; j < clipSetsPerSong; j++)
         {
-            Debug.Log($"Protocol Ending");
-            nextEventTime = double.MaxValue;
-            SequenceEndedEvent?.Invoke();
-            return;
-        }*/
-
-        MusicClip clip = activeClipSet.MusicClips[clipSetIndex];
-        musicMixer.QueueClip(clip);
-        nextEventTime += clip.Duration;
-        clipSetIndex++;
+            activeClipSet = clipSetProvider.GetNextClipSet(clipResults.ToArray());
+            for (int i = 0; i < activeClipSet.ClipCount; i++)
+            {
+                musicMixer.QueueClip(activeClipSet.MusicClips[i]);
+            }
+        }
     }
 
     private void LogClipResults(MusicClipResults clipResults)

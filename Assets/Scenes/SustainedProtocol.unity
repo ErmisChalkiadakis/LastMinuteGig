@@ -412,6 +412,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d9432906462ce240a7f631c3cdf243a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &125222881 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 503735081882161609, guid: 6d79b769ca8532a4290b62048b76c7c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8671607}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &257088260
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,6 +947,11 @@ PrefabInstance:
       propertyPath: stickFigure
       value: 
       objectReference: {fileID: 1839325878}
+    - target: {fileID: 2300204837232596874, guid: ebb67b9d4b86f3940b8cc7a71e610d5e,
+        type: 3}
+      propertyPath: stickFigureAnimator
+      value: 
+      objectReference: {fileID: 125222881}
     - target: {fileID: 2310695587987692453, guid: ebb67b9d4b86f3940b8cc7a71e610d5e,
         type: 3}
       propertyPath: m_Layer

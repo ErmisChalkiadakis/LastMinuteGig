@@ -178,17 +178,14 @@ public class GenericMusicClipProvider : IMusicClipSetProvider
 
         if (change == MusicalChange.Tempo)
         {
-            Debug.Log($"Creating a tempo change");
             tempo = GetRandomEnumOtherThan(tempo);
         }
         else if (change == MusicalChange.Rhythm)
         {
-            Debug.Log($"Creating a rhythm change");
             rhythm = GetRandomEnumOtherThan(rhythm);
         }
         else if (change == MusicalChange.PlayToRest)
         {
-            Debug.Log($"Creating a play-rest change");
             return GenerateEmptyClipSet(key, tempo, rhythm, chordProgression);
         }
 

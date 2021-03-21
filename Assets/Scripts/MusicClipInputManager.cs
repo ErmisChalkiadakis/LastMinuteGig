@@ -43,7 +43,7 @@ public class MusicClipInputManager : MonoBehaviour
         }
     }
 
-    private const float CLIP_CHANGE_WINDOW = 0.1f;
+    private const float CLIP_CHANGE_WINDOW = 0.2f;
 
     public delegate void ClipInputFinalizedHandler(MusicClipResults clipResults);
     public event ClipInputFinalizedHandler ClipInputFinalizedEvent;

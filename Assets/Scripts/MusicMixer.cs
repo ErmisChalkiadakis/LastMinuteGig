@@ -10,8 +10,8 @@ public class MusicMixer : MonoBehaviour
 
     public double StartTime => startTime;
 
-    private const float FLIP_INTERVAL = 2f;
-    private const float DELAY_UNTIL_FIRST = 1f;
+    private const float FLIP_INTERVAL = 1f;
+    private const float DELAY_UNTIL_FIRST = 0.5f;
     private const int MAX_LAYERED_CLIPS = 5;
 
     private int flip = 0;
@@ -27,8 +27,6 @@ public class MusicMixer : MonoBehaviour
     protected void Awake()
     {
         CreateAudioPlayers();
-        startTime = AudioSettings.dspTime + DELAY_UNTIL_FIRST;
-        nextEventTime = startTime;
     }
 
     protected void Update()
@@ -44,6 +42,11 @@ public class MusicMixer : MonoBehaviour
 
     public void QueueClip(MusicClip musicClip)
     {
+        if (clipQueue.Count == 0)
+        {
+            SetStartTime();
+        }
+
         clipQueue.Enqueue(musicClip);
         double queuedClipStartTime = CalculateQueuedClipStartTime();
         ClipQueuedEvent?.Invoke(musicClip, queuedClipStartTime);
@@ -130,5 +133,11 @@ public class MusicMixer : MonoBehaviour
         }
 
         return time;
+    }
+
+    private void SetStartTime()
+    {
+        startTime = AudioSettings.dspTime + DELAY_UNTIL_FIRST;
+        nextEventTime = startTime;
     }
 }

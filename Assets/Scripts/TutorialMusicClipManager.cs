@@ -18,6 +18,7 @@ public class TutorialMusicClipManager : MonoBehaviour
     [SerializeField] private MusicClipInputManager inputManager;
     [SerializeField] private PercussionMusicClipLibrary percussionClipLibrary;
     [SerializeField] private InputMusicClipLibrary inputClipLibrary;
+    [SerializeField] private ChordProgressionLibrary chordProgressionLibrary;
     [SerializeField] private int loopCount;
     [SerializeField] private TutorialClip[] tutorialClips;
 
@@ -46,6 +47,7 @@ public class TutorialMusicClipManager : MonoBehaviour
 
     private void GenerateTutorialClips()
     {
+        ChordProgression chordProgression = chordProgressionLibrary.GetFirstChordProgression();
         musicClips = new List<MusicClip>();
         for (int i = 0; i < tutorialClips.Length; i++)
         {

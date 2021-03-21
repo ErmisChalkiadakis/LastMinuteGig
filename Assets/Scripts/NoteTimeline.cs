@@ -33,7 +33,7 @@ public class NoteTimeline : MonoBehaviour
 
     protected void Update()
     {
-        if (firstClipQueued)
+        if (firstClipQueued && AudioSettings.dspTime > musicMixer.StartTime)
         {
             noteLine.anchoredPosition = new Vector2(noteLine.anchoredPosition.x - Time.deltaTime * widthPerSecond, noteLine.anchoredPosition.y);
         }

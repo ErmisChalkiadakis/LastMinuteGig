@@ -229,6 +229,9 @@ MonoBehaviour:
   percussionClipLibrary: {fileID: 11400000, guid: fcaca4ec716d82a4eb22fd1126385527,
     type: 2}
   inputClipLibrary: {fileID: 11400000, guid: b0db2f6bfb9ee404f841146ab6e1b6f8, type: 2}
+  chordProgressionLibrary: {fileID: 11400000, guid: c33f2954432d4664b92decc3d3815303,
+    type: 2}
+  loopCount: 5
   tutorialClips:
   - rhythm: 0
     tempo: 0
@@ -250,7 +253,6 @@ MonoBehaviour:
     tempo: 0
   - rhythm: 3
     tempo: 1
-  loopCount: 5
 --- !u!1 &2813776640245479170
 GameObject:
   m_ObjectHideFlags: 0

@@ -1799,11 +1799,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4274809050646586483, guid: 4edf2f581b8f57446aee352b33243ccf,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 150
-      objectReference: {fileID: 0}
     - target: {fileID: 5853296772779260494, guid: 4edf2f581b8f57446aee352b33243ccf,
         type: 3}
       propertyPath: m_Name

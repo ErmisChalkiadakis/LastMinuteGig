@@ -23,7 +23,7 @@ public class SustainedProtocolTutorialScreen : MonoBehaviour
     [SerializeField] private InstrumentButton instrumentButton;
     [SerializeField] private TextBox textBox;
     [SerializeField] private Arrow arrow;
-    [SerializeField] private float hideTimelineDelay = 60f;
+    [SerializeField] private float hideTimelineDelay = 25f;
     [SerializeField] private TutorialStep[] tutorialSteps;
 
     private int index = 0;
@@ -116,6 +116,11 @@ public class SustainedProtocolTutorialScreen : MonoBehaviour
 
     private void StartNoteTimelineTutorial()
     {
+        stickFigureAnimator.SetLayerWeight(TUTORIAL_LAYER_INDEX, 0);
+        stickFigureAnimator.SetLayerWeight(ROCK_LAYER_INDEX, 1);
+        stickFigureAnimator.SetLayerWeight(CHORD_LAYER_INDEX, 1);
+        stickFigureAnimator.SetLayerWeight(PLAY_LAYER_INDEX, 1);
+
         textGroupAnimatorStateObserver.AnimatorStateEnteredEvent -= OnTextGroupAnimatorStateEnteredEvent;
         instrumentButton.gameObject.SetActive(true);
         noteTimeline.gameObject.SetActive(true);

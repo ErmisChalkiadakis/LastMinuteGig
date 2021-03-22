@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SustainedProtocolTutorialScreen : MonoBehaviour
 {
@@ -23,7 +24,9 @@ public class SustainedProtocolTutorialScreen : MonoBehaviour
     [SerializeField] private InstrumentButton instrumentButton;
     [SerializeField] private TextBox textBox;
     [SerializeField] private Arrow arrow;
+    [SerializeField] private MainMenuButton skipButton;
     [SerializeField] private float hideTimelineDelay = 25f;
+    [SerializeField] private float delayUntilSkipButtonShows = 10f;
     [SerializeField] private TutorialStep[] tutorialSteps;
 
     private int index = 0;
@@ -34,6 +37,13 @@ public class SustainedProtocolTutorialScreen : MonoBehaviour
         fadeToBlackAnimator.SetBool(SHOW_HASH, true);
         animatorStateObserver.AnimatorStateEnteredEvent += OnAnimatorStateEnteredEvent;
         InitializeStickAnimator();
+        skipButton.gameObject.SetActive(false);
+        skipButton.ButtonSelectedEvent += OnButtonSelectedEvent;
+    }
+
+    protected void OnDestroy()
+    {
+        skipButton.ButtonSelectedEvent -= OnButtonSelectedEvent;
     }
 
     private void OnAnimatorStateEnteredEvent(string state)
@@ -42,6 +52,11 @@ public class SustainedProtocolTutorialScreen : MonoBehaviour
         {
             StartSequence();
         }
+    }
+
+    private void OnButtonSelectedEvent()
+    {
+        StartGameSequence();
     }
 
     private void StartSequence()
@@ -127,9 +142,16 @@ public class SustainedProtocolTutorialScreen : MonoBehaviour
         arrow.gameObject.SetActive(false);
         textBox.gameObject.SetActive(false);
         noteTimelineAnimator.SetBool(SHOW_HASH, true);
-        StartCoroutine(HideNoteTimelineAfterSeconds(hideTimelineDelay));
+        StartCoroutine(HideNoteTimelineAndShowSkipButtonAfterSeconds(hideTimelineDelay));
         musicMixer.gameObject.SetActive(true);
         tutorialMusicClipManager.StartTutorialClips();
+    }
+
+    private void StartGameSequence()
+    {
+        musicMixer.gameObject.SetActive(false);
+        fadeToBlackAnimator.SetBool(SHOW_HASH, false);
+        StartCoroutine(LoadSceneAfterSeconds(1f));
     }
 
     private IEnumerator PlayAnimationAfterSeconds(float delay)
@@ -139,9 +161,20 @@ public class SustainedProtocolTutorialScreen : MonoBehaviour
         stickFigureAnimator.SetTrigger(NEXT_STEP_HASH);
     }
 
-    private IEnumerator HideNoteTimelineAfterSeconds(float delay)
+    private IEnumerator HideNoteTimelineAndShowSkipButtonAfterSeconds(float delay)
     {
         yield return new WaitForSeconds(delay);
         noteTimelineAnimator.SetBool(SHOW_HASH, false);
+        yield return new WaitForSeconds(delayUntilSkipButtonShows);
+        skipButton.gameObject.SetActive(true);
+    }
+
+    private IEnumerator LoadSceneAfterSeconds(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        PlayerPrefs.SetInt("PlayedTutorial", 1);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("SustainedProtocol");
     }
 }

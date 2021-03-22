@@ -29,7 +29,15 @@ public class MainMenuScreen : MonoBehaviour
         animator.SetBool(SHOW_HASH, false);
 
         yield return new WaitForSeconds(.5f);
-        
-        SceneManager.LoadScene("SustainedProtocol");
+
+        int playerPlayedTutorial = PlayerPrefs.GetInt("PlayedTutorial");
+        if (playerPlayedTutorial == 0)
+        {
+            SceneManager.LoadScene("SustainedProtocol Tutorial");
+        }
+        else
+        {
+            SceneManager.LoadScene("SustainedProtocol");
+        }
     }
 }

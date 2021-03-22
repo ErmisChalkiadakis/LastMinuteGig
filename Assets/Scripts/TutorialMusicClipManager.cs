@@ -22,7 +22,14 @@ public class TutorialMusicClipManager : MonoBehaviour
     [SerializeField] private ChordProgressionLibrary chordProgressionLibrary;
     [SerializeField] private int loopCount;
 
+    private Random random;
+
     private List<MusicClip> musicClips;
+
+    protected void Awake()
+    {
+        random = new Random();
+    }
 
     protected void OnDestroy()
     {
@@ -47,14 +54,15 @@ public class TutorialMusicClipManager : MonoBehaviour
             for (int j = 0; j < 2; j++)
             {
                 MusicalChange change = GetRandomMusicalChange();
-                Debug.Log(change);
                 if (change == MusicalChange.Tempo)
                 {
                     tempo = GetRandomEnumOtherThan(tempo);
+                    Debug.Log($"Tempo change to {tempo}");
                 }
                 else
                 {
                     rhythm = GetRandomEnumOtherThan(rhythm);
+                    Debug.Log($"Rhythm change to {rhythm}");
                 }
 
                 int chordIndex = 0;
@@ -74,26 +82,23 @@ public class TutorialMusicClipManager : MonoBehaviour
 
     private MusicalChange GetRandomMusicalChange()
     {
-        Random random = new Random();
         return (random.Next(2) == 0) ? MusicalChange.Tempo : MusicalChange.Rhythm;
     }
 
     private T GetRandomEnum<T>() where T : Enum
     {
         Array values = Enum.GetValues(typeof(T));
-        Random random = new Random();
         return (T)values.GetValue(random.Next(values.Length));
     }
     
     private T GetRandomEnumOtherThan<T>(T en) where T : Enum
     {
         T[] allValues = (T[])Enum.GetValues(typeof(T));
-        Random random = new Random();
         Enum test = Enum.Parse(typeof(T), en.ToString()) as Enum;
         int index = Convert.ToInt32(test);
         T[] newValues = new T[allValues.Length - 1];
         int counter = 0;
-        for (int i = 0; i < newValues.Length; i++)
+        for (int i = 0; i < allValues.Length; i++)
         {
             if (i != index)
             {
@@ -102,6 +107,7 @@ public class TutorialMusicClipManager : MonoBehaviour
             }
         }
 
-        return newValues[random.Next(newValues.Length)];
+        T returnValue = newValues[random.Next(newValues.Length)];
+        return returnValue;
     }
 }

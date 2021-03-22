@@ -231,28 +231,7 @@ MonoBehaviour:
   inputClipLibrary: {fileID: 11400000, guid: b0db2f6bfb9ee404f841146ab6e1b6f8, type: 2}
   chordProgressionLibrary: {fileID: 11400000, guid: c33f2954432d4664b92decc3d3815303,
     type: 2}
-  loopCount: 5
-  tutorialClips:
-  - rhythm: 0
-    tempo: 0
-  - rhythm: 0
-    tempo: 0
-  - rhythm: 0
-    tempo: 1
-  - rhythm: 0
-    tempo: 1
-  - rhythm: 1
-    tempo: 1
-  - rhythm: 1
-    tempo: 1
-  - rhythm: 1
-    tempo: 0
-  - rhythm: 2
-    tempo: 0
-  - rhythm: 3
-    tempo: 0
-  - rhythm: 3
-    tempo: 1
+  loopCount: 15
 --- !u!1 &2813776640245479170
 GameObject:
   m_ObjectHideFlags: 0

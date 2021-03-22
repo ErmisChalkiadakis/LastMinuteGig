@@ -86,6 +86,7 @@ public class InstrumentButton : MonoBehaviour, IPointerEnterHandler, IPointerExi
             GameObject audioSource = new GameObject($"Audio Source {i}");
             audioSource.transform.parent = gameObject.transform;
             audioSources[i] = audioSource.AddComponent<AudioSource>();
+            audioSources[i].volume = 0.8f;
         }
     }
     

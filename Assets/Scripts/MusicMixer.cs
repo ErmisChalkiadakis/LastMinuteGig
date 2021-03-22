@@ -103,11 +103,6 @@ public class MusicMixer : MonoBehaviour
             GameObject child = new GameObject($"Percussion Player {i}");
             child.transform.parent = transform;
             percussionAudioSources[i] = child.AddComponent<AudioSource>();
-
-            child = new GameObject($"Input Player {i}");
-            child.transform.parent = transform;
-            inputAudioSources[i] = child.AddComponent<AudioSource>();
-            inputAudioSources[i].volume = 0.8f;
         }
 
         for (int i = 0; i < MAX_LAYERED_CLIPS; i++)

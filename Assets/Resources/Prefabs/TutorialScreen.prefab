@@ -289,7 +289,7 @@ MonoBehaviour:
   instrumentButton: {fileID: 4809850323070751400}
   textBox: {fileID: 8797034986620866161}
   arrow: {fileID: 3344860465044192581}
-  hideTimelineDelay: 60
+  hideTimelineDelay: 40
   tutorialSteps:
   - Text: This is you.
     PlayNextAnimation: 0

@@ -57,12 +57,10 @@ public class TutorialMusicClipManager : MonoBehaviour
                 if (change == MusicalChange.Tempo)
                 {
                     tempo = GetRandomEnumOtherThan(tempo);
-                    Debug.Log($"Tempo change to {tempo}");
                 }
                 else
                 {
                     rhythm = GetRandomEnumOtherThan(rhythm);
-                    Debug.Log($"Rhythm change to {rhythm}");
                 }
 
                 int chordIndex = 0;

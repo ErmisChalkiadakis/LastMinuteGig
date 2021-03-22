@@ -81,12 +81,12 @@ public class NoteTimeline : MonoBehaviour
         if (cachedClip.PercussionClip.Tempo != nextClip.PercussionClip.Tempo)
         {
             colorFlip = !colorFlip;
-            InstantiateChangeIndicator(tempoChangeColor, $"Tempo Change", time);
+            InstantiateChangeIndicator(colorFlip ? noteColor1 : noteColor2, $"Tempo Change", time);
         }
         else if (cachedClip.PercussionClip.Rhythm != nextClip.PercussionClip.Rhythm)
         {
             colorFlip = !colorFlip;
-            InstantiateChangeIndicator(rhythmChangeColor, $"Rhythm Change", time);
+            InstantiateChangeIndicator(colorFlip ? noteColor1 : noteColor2, $"Rhythm Change", time);
         }
     }
 

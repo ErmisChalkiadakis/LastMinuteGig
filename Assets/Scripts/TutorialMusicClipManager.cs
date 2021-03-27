@@ -24,16 +24,9 @@ public class TutorialMusicClipManager : MonoBehaviour
 
     private Random random;
 
-    private List<MusicClip> musicClips;
-
     protected void Awake()
     {
         random = new Random();
-    }
-
-    protected void OnDestroy()
-    {
-        musicClips.Clear();
     }
 
     public void StartTutorialClips()
@@ -47,7 +40,6 @@ public class TutorialMusicClipManager : MonoBehaviour
         Rhythm rhythm = GetRandomEnum<Rhythm>();
         Tempo tempo = GetRandomEnum<Tempo>();
         Key key = GetRandomEnum<Key>();
-        musicClips = new List<MusicClip>();
 
         for (int i = 0; i < loopCount; i++)
         {

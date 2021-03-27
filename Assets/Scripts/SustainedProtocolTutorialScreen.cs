@@ -25,6 +25,7 @@ public class SustainedProtocolTutorialScreen : MonoBehaviour
     [SerializeField] private TextBox textBox;
     [SerializeField] private Arrow arrow;
     [SerializeField] private MainMenuButton skipButton;
+    [SerializeField] private HelperMessages helperMessages;
     [SerializeField] private float hideTimelineDelay = 25f;
     [SerializeField] private float delayUntilSkipButtonShows = 10f;
     [SerializeField] private TutorialStep[] tutorialSteps;
@@ -113,6 +114,7 @@ public class SustainedProtocolTutorialScreen : MonoBehaviour
         instrumentButton.gameObject.SetActive(false);
         noteTimeline.gameObject.SetActive(false);
         musicMixer.gameObject.SetActive(false);
+        helperMessages.gameObject.SetActive(false);
     }
 
     private void StartNoteTimelineTutorialTransition()
@@ -139,6 +141,8 @@ public class SustainedProtocolTutorialScreen : MonoBehaviour
         textGroupAnimatorStateObserver.AnimatorStateEnteredEvent -= OnTextGroupAnimatorStateEnteredEvent;
         instrumentButton.gameObject.SetActive(true);
         noteTimeline.gameObject.SetActive(true);
+        helperMessages.gameObject.SetActive(true);
+        helperMessages.StartMessages();
         arrow.gameObject.SetActive(false);
         textBox.gameObject.SetActive(false);
         noteTimelineAnimator.SetBool(SHOW_HASH, true);

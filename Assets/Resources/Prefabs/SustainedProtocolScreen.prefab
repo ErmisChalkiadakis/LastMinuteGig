@@ -55,6 +55,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicClipManager: {fileID: 7691223442134798062}
   stickFigure: {fileID: 0}
+  stickFigureAnimator: {fileID: 0}
+  fadeToBlackAnimator: {fileID: 0}
+  numberOfTotalSongs: 4
 --- !u!1001 &4089090752063822091
 PrefabInstance:
   m_ObjectHideFlags: 0

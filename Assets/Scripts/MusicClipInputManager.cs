@@ -128,11 +128,14 @@ public class MusicClipInputManager : MonoBehaviour
     {
         nextInputWindows.Clear();
         nextId = scheduledClip.ID;
-        foreach (ButtonTiming buttonTiming in scheduledClip.PercussionClip.ButtonTimings)
+        if (scheduledClip.PercussionClip.ButtonTimings != null)
         {
-            double min = startingTime + (scheduledClip.Duration * buttonTiming.Timing) - inputWindowLeniency;
-            double max = Mathf.Min((float)(startingTime + (scheduledClip.Duration * buttonTiming.Timing) + inputWindowLeniency), (float)(startingTime + scheduledClip.Duration));
-            nextInputWindows.Add(new InputWindow(min, max, buttonTiming.ButtonID));
+            foreach (ButtonTiming buttonTiming in scheduledClip.PercussionClip.ButtonTimings)
+            {
+                double min = startingTime + (scheduledClip.Duration * buttonTiming.Timing) - inputWindowLeniency;
+                double max = Mathf.Min((float)(startingTime + (scheduledClip.Duration * buttonTiming.Timing) + inputWindowLeniency), (float)(startingTime + scheduledClip.Duration));
+                nextInputWindows.Add(new InputWindow(min, max, buttonTiming.ButtonID));
+            }
         }
 
         double endingTime = startingTime + scheduledClip.Duration;
@@ -150,7 +153,10 @@ public class MusicClipInputManager : MonoBehaviour
 
         activeClipResults = new MusicClipResults(scheduledTime);
         currentInputWindows = nextInputWindows;
-        middleButton.SetInstrumentSounds(scheduledClip.InputClip.AudioClips);
+        if (scheduledClip.InputClip != null)
+        {
+            middleButton.SetInstrumentSounds(scheduledClip.InputClip.AudioClips);
+        }
     }
 
     private IEnumerator ClipFinished(double endingTime)

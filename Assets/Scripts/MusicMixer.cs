@@ -16,7 +16,6 @@ public class MusicMixer : MonoBehaviour
 
     private int flip = 0;
     private AudioSource[] percussionAudioSources = new AudioSource[2];
-    private AudioSource[] inputAudioSources = new AudioSource[2];
     private AudioSource[] layerAudioSources = new AudioSource[MAX_LAYERED_CLIPS];
     private AudioSource[] layerAudioSourcesFlipped = new AudioSource[MAX_LAYERED_CLIPS];
     private double nextEventTime;
@@ -86,10 +85,7 @@ public class MusicMixer : MonoBehaviour
             }
         }
 
-        if (nextClip.InputClip != null)
-        {
-            ClipScheduledEvent?.Invoke(nextClip, nextEventTime);
-        }
+        ClipScheduledEvent?.Invoke(nextClip, nextEventTime);
 
         nextEventTime += nextClip.Duration;
 

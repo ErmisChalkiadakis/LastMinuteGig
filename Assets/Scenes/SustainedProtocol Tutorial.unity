@@ -960,6 +960,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5897286889391644913, guid: 1797548ab44b1a24db553cffbbff6e1a,
+        type: 3}
+      propertyPath: m_Name
+      value: FX Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 6095121123378856472, guid: 1797548ab44b1a24db553cffbbff6e1a,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1009,6 +1014,11 @@ PrefabInstance:
         type: 3}
       propertyPath: tutorialText.Array.size
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
+        type: 3}
+      propertyPath: tutorialSteps.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
         type: 3}

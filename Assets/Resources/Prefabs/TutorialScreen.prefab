@@ -859,7 +859,7 @@ GameObject:
   - component: {fileID: 9024917499794623219}
   - component: {fileID: 4533942932441972974}
   m_Layer: 0
-  m_Name: FadeToBlack Canvas
+  m_Name: FX Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

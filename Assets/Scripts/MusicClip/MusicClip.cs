@@ -1,5 +1,7 @@
 ﻿public class MusicClip
 {
+    private static int idCounter = 0;
+
     public int ID;
     public PercussionMusicClip PercussionClip;
     public InputMusicClip InputClip;
@@ -9,6 +11,7 @@
 
     public MusicClip(PercussionMusicClip percussionClip, InputMusicClip inputClip, LayerMusicClip[] layerClips)
     {
+        ID = ++idCounter;
         PercussionClip = percussionClip;
         InputClip = inputClip;
         LayerClips = layerClips;
@@ -16,15 +19,15 @@
 
     public MusicClip(int id, PercussionMusicClip percussionClip, InputMusicClip inputClip, LayerMusicClip[] layerClips)
     {
-        ID = id;
+        ID = ++idCounter;
         PercussionClip = percussionClip;
         InputClip = inputClip;
         LayerClips = layerClips;
     }
 
-    public MusicClip(int id, Tempo tempo, Rhythm rhythm)
+    public MusicClip(Tempo tempo, Rhythm rhythm)
     {
-        ID = id;
+        ID = ++idCounter;
         PercussionClip = new PercussionMusicClip(tempo, rhythm);
     }
 }

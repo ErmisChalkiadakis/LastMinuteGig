@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using System.Linq;
 
 using Random = System.Random;
 
@@ -17,5 +19,20 @@ public class ChordProgressionLibrary : ScriptableObject
 
         int index = random.Next(chordProgressions.Length);
         return chordProgressions[index];
+    }
+
+    public ChordProgression GetRandomChordProgressionOtherThan(ChordProgression chordProgression)
+    {
+        List<ChordProgression> otherChordProgressions = new List<ChordProgression>(chordProgressions);
+        if (!otherChordProgressions.Contains(chordProgression))
+        {
+            Debug.LogError($"Chord progression {chordProgression} not found in the Library");
+            return null;
+        }
+        otherChordProgressions.Remove(chordProgression);
+        Random random = new Random();
+
+        int index = random.Next(otherChordProgressions.Count);
+        return otherChordProgressions[index];
     }
 }

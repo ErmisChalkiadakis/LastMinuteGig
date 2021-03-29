@@ -10,19 +10,19 @@ public class GenericMusicClipProvider : IMusicClipSetProvider
     private ChordProgressionLibrary chordProgressionLibrary;
     private PercussionMusicClipLibrary percussionLibrary;
     private InputMusicClipLibrary inputLibrary;
-    private LayerMusicClipLibrary layerLibrary;
 
     private List<MusicClipSet> clipSets;
     private MusicClipResults[] clipResults;
     private List<MusicalChange> musicalChanges;
     private List<MusicalChange> calibrationMusicalChanges;
 
+    private ChordProgression previousChordProgression;
+
     public GenericMusicClipProvider()
     {
         chordProgressionLibrary = Resources.Load<ChordProgressionLibrary>("Libraries/ChordProgressionLibrary");
         percussionLibrary = Resources.Load<PercussionMusicClipLibrary>("Libraries/PercussionMusicClipLibrary");
         inputLibrary = Resources.Load<InputMusicClipLibrary>("Libraries/InputMusicClipLibrary");
-        layerLibrary = Resources.Load<LayerMusicClipLibrary>("Libraries/LayerMusicClipLibrary");
 
         clipSets = new List<MusicClipSet>();
         musicalChanges = new List<MusicalChange>();
@@ -31,7 +31,17 @@ public class GenericMusicClipProvider : IMusicClipSetProvider
 
     public MusicClipSet GetFirstClipSet()
     {
-        ChordProgression chordProgression = chordProgressionLibrary.GetRandomChordProgression();
+        clipSets.Clear();
+        ChordProgression chordProgression;
+        if (previousChordProgression == null)
+        {
+            chordProgression = chordProgressionLibrary.GetRandomChordProgression();
+        }
+        else
+        {
+            chordProgression = chordProgressionLibrary.GetRandomChordProgressionOtherThan(previousChordProgression);
+        }
+        previousChordProgression = chordProgression;
         Key key = GetRandomEnum<Key>();
         Rhythm rhythm = GetRandomEnum<Rhythm>();
         Tempo tempo = GetRandomEnum<Tempo>();
@@ -145,7 +155,7 @@ public class GenericMusicClipProvider : IMusicClipSetProvider
 
     private MusicClipSet GenerateEmptyClipSet(Key key, Tempo tempo, Rhythm rhythm, ChordProgression chordProgression)
     {
-        MusicClip emptyClip = new MusicClip(0, tempo, rhythm);
+        MusicClip emptyClip = new MusicClip(tempo, rhythm);
         MusicClip[] clipArray = new MusicClip[1];
         clipArray[0] = emptyClip;
         MusicClipSet emptyClipSet = new MusicClipSet(clipArray, key, rhythm, tempo, chordProgression, true);

@@ -30,6 +30,7 @@ public class StickFigure : MonoBehaviour
 
     public void StopRocking()
     {
+        isRocking = false;
         animator.SetBool(ROCK_HASH, false);
     }
 
@@ -40,7 +41,10 @@ public class StickFigure : MonoBehaviour
             StartCoroutine(Rock(startingTime));
         }
 
-        StartCoroutine(ChangeChord(scheduledClip, startingTime));
+        if (scheduledClip.InputClip != null)
+        {
+            StartCoroutine(ChangeChord(scheduledClip, startingTime));
+        }
     }
 
     private void OnButtonSelectedEvent(ButtonID buttonId)

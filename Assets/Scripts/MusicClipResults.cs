@@ -128,7 +128,7 @@ public class MusicClipResults
         double closestDistance = double.MaxValue;
         double closestNumber = 0f;
 
-        foreach (var number in list)
+        foreach (double number in list)
         {
             float distance = Mathf.Abs((float)(number - target));
             if (distance < closestDistance)

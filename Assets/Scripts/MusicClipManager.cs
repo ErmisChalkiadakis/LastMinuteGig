@@ -7,9 +7,6 @@ public class MusicClipManager : MonoBehaviour
     public delegate void SequenceEndedHandler();
     public event SequenceEndedHandler SequenceEndedEvent;
 
-    private const float FLIP_INTERVAL = 0.5f;
-    private const float DELAY_UNTIL_FIRST = 1f;
-
     [SerializeField] private MusicMixer musicMixer;
     [SerializeField] private MusicClipInputManager inputManager;
     [SerializeField] private PercussionMusicClipLibrary percussionClipLibrary;
@@ -31,7 +28,6 @@ public class MusicClipManager : MonoBehaviour
 
         clipResults = new List<MusicClipResults>();
         clipSetProvider = new GenericMusicClipProvider();
-        QueueClips();
     }
 
     protected void OnDestroy()
@@ -39,8 +35,20 @@ public class MusicClipManager : MonoBehaviour
         inputManager.ClipInputFinalizedEvent -= OnClipInputFinalizedEvent;
     }
 
+    public void StartSong()
+    {
+        QueueClips();
+    }
+
     private void OnClipInputFinalizedEvent(MusicClipResults clipResults)
     {
+        Debug.Log($"{clipResults.ID} = {activeClipSet.MusicClips[activeClipSet.MusicClips.Length - 1].ID}");
+        if (clipResults.ID == activeClipSet.MusicClips[activeClipSet.MusicClips.Length - 1].ID)
+        {
+            Debug.Log($"Final Clip Played");
+            SequenceEndedEvent?.Invoke();
+        }
+
         this.clipResults.Add(clipResults);
     }
 
@@ -52,7 +60,7 @@ public class MusicClipManager : MonoBehaviour
             musicMixer.QueueClip(activeClipSet.MusicClips[i]);
         }
 
-        for (int j = 0; j < clipSetsPerSong; j++)
+        for (int j = 0; j < clipSetsPerSong - 1; j++)
         {
             activeClipSet = clipSetProvider.GetNextClipSet(clipResults.ToArray());
             for (int i = 0; i < activeClipSet.ClipCount; i++)

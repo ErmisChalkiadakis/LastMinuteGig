@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SustainedProtocolScreen : MonoBehaviour
 {
-    private static int SHOW_HASH = Animator.StringToHash("Show");
+    private static int SHOW_INBETWEEN_HASH = Animator.StringToHash("ShowInbetween");
+    private static int SHOW_OUTRO_HASH = Animator.StringToHash("ShowOutro");
 
     private const float PROTOCOL_ENDED_DELAY = 2f;
 
@@ -14,6 +15,7 @@ public class SustainedProtocolScreen : MonoBehaviour
     [SerializeField] private Animator stickFigureAnimator;
     [SerializeField] private Animator sequenceAnimator;
     [SerializeField] private AnimatorStateObserver sequenceAnimatorStateObserver;
+    [SerializeField] private PlaySongOnEnable playSongOnEnable;
     [SerializeField] private int numberOfTotalSongs = 4;
 
     private int songCount = 0;
@@ -21,8 +23,8 @@ public class SustainedProtocolScreen : MonoBehaviour
     protected void Awake()
     {
         InitializeStickAnimator();
-        ShowIntroSequence();
         musicClipManager.SequenceEndedEvent += OnSequenceEndedEvent;
+        playSongOnEnable.PlayFirstSongEvent += OnPlayFirstSongEvent;
     }
 
     protected void OnDestroy()
@@ -44,6 +46,11 @@ public class SustainedProtocolScreen : MonoBehaviour
         }
     }
 
+    private void OnPlayFirstSongEvent()
+    {
+        PlayNextSong();
+    }
+
     private void InitializeStickAnimator()
     {
         stickFigureAnimator.SetLayerWeight(stickFigureAnimator.GetLayerIndex("Tutorial"), 0);
@@ -52,21 +59,14 @@ public class SustainedProtocolScreen : MonoBehaviour
         stickFigureAnimator.SetLayerWeight(stickFigureAnimator.GetLayerIndex("Play"), 1);
     }
 
-    private void ShowIntroSequence()
-    {
-        // TODO 
-        //StartCoroutine(StartFirstSongAfterSeconds(3f));
-    }
-
     private void ShowInbetweenSequence()
     {
-        // TODO
-        PlayNextSong();
+        sequenceAnimator.SetBool(SHOW_INBETWEEN_HASH, true);
     }
 
     private void ShowOutroSequence()
     {
-        // TODO
+        sequenceAnimator.SetBool(SHOW_OUTRO_HASH, true);
         StartCoroutine(GoBackToMainMenuAfterSeconds(PROTOCOL_ENDED_DELAY));
     }
 
@@ -74,13 +74,6 @@ public class SustainedProtocolScreen : MonoBehaviour
     {
         songCount++;
         musicClipManager.StartSong();
-    }
-
-    private IEnumerator StartFirstSongAfterSeconds(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-
-        PlayNextSong();
     }
 
     private IEnumerator GoBackToMainMenuAfterSeconds(float delay)

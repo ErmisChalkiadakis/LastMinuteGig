@@ -42,7 +42,6 @@ public class MusicClipManager : MonoBehaviour
 
     private void OnClipInputFinalizedEvent(MusicClipResults clipResults)
     {
-        Debug.Log($"{clipResults.ID} = {activeClipSet.MusicClips[activeClipSet.MusicClips.Length - 1].ID}");
         if (clipResults.ID == activeClipSet.MusicClips[activeClipSet.MusicClips.Length - 1].ID)
         {
             Debug.Log($"Final Clip Played");

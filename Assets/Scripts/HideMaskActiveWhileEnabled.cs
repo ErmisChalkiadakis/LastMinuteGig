@@ -2,7 +2,7 @@
 
 public class HideMaskActiveWhileEnabled : MonoBehaviour
 {
-    public float Alpha = 1f;
+    [SerializeField] public float Alpha = 1f;
 
     [SerializeField] private StickFigure stickFigure;
 

@@ -36,6 +36,11 @@ public class StickFigure : MonoBehaviour
 
     private void OnClipScheduledEvent(MusicClip scheduledClip, double startingTime)
     {
+        if (!gameObject.activeSelf)
+        {
+            return;
+        }
+
         if (!isRocking)
         {
             StartCoroutine(Rock(startingTime));

@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class InstrumentButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
+    public bool Interactable = true;
+
     private static int HOVER_HASH = Animator.StringToHash("Hover");
     private static int DOWN_HASH = Animator.StringToHash("Down");
 
@@ -58,7 +60,10 @@ public class InstrumentButton : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        ButtonSelected();
+        if (Interactable)
+        {
+            ButtonSelected();
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)

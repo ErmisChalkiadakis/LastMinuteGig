@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 942015956898756372}
   - component: {fileID: 8353829955832122334}
   - component: {fileID: 4089661093690780835}
+  - component: {fileID: 848646679347144220}
   m_Layer: 0
   m_Name: InstrumentButton
   m_TagString: Untagged
@@ -194,6 +195,18 @@ MonoBehaviour:
   buttonId: 0
   animator: {fileID: 0}
   instrumentIcon: {fileID: 0}
+--- !u!225 &848646679347144220
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5853296772779260494}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8686317650992581787
 GameObject:
   m_ObjectHideFlags: 0

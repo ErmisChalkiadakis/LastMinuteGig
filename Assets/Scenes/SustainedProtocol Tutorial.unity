@@ -1017,11 +1017,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
         type: 3}
-      propertyPath: tutorialSteps.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802174472396979182, guid: 1797548ab44b1a24db553cffbbff6e1a,
-        type: 3}
       propertyPath: tutorialText.Array.data[3]
       value: EZHSE
       objectReference: {fileID: 0}

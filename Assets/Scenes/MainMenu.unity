@@ -515,12 +515,12 @@ PrefabInstance:
     - target: {fileID: 5781190866379660887, guid: 6fec31ddadeae1b46a7508ff4e59c333,
         type: 3}
       propertyPath: m_text
-      value: Sustained Protocol
+      value: Start Game
       objectReference: {fileID: 0}
     - target: {fileID: 5781190866379660887, guid: 6fec31ddadeae1b46a7508ff4e59c333,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 18
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5781190866379660887, guid: 6fec31ddadeae1b46a7508ff4e59c333,
         type: 3}
@@ -531,6 +531,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.wordCount
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781190866379660887, guid: 6fec31ddadeae1b46a7508ff4e59c333,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781190866379660887, guid: 6fec31ddadeae1b46a7508ff4e59c333,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7182622147075570192, guid: 6fec31ddadeae1b46a7508ff4e59c333,
         type: 3}

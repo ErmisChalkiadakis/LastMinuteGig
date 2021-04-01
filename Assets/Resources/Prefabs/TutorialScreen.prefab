@@ -472,7 +472,7 @@ MonoBehaviour:
     PlayNextAnimation: 0
     ShowTextAfterSeconds: 0
     PlayAnimationAfterSeconds: 0
-  - Text: Tony said an agent from that record label was going to come!
+  - Text: Joey said an agent from that record label was going to come!
     PlayNextAnimation: 0
     ShowTextAfterSeconds: 0
     PlayAnimationAfterSeconds: 0
@@ -484,15 +484,15 @@ MonoBehaviour:
     PlayNextAnimation: 0
     ShowTextAfterSeconds: 0
     PlayAnimationAfterSeconds: 0
-  - Text: Remember Dennis the guitar player?
+  - Text: Remember Robin the guitar player?
     PlayNextAnimation: 0
     ShowTextAfterSeconds: 0
     PlayAnimationAfterSeconds: 0
-  - Text: He's sick!
+  - Text: They're sick!
     PlayNextAnimation: 1
     ShowTextAfterSeconds: 0
     PlayAnimationAfterSeconds: 1
-  - Text: You're going to have to fill in for him.
+  - Text: You're going to have to fill in for Robin.
     PlayNextAnimation: 1
     ShowTextAfterSeconds: 3.5
     PlayAnimationAfterSeconds: 0.5

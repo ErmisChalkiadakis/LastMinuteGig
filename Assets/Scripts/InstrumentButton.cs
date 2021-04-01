@@ -33,7 +33,7 @@ public class InstrumentButton : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     protected void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Interactable)
         {
             ButtonSelected();
         }

@@ -49,6 +49,7 @@ public class MusicClipManager : MonoBehaviour
         }
 
         this.clipResults.Add(clipResults);
+        Debug.Log(clipResults);
     }
 
     private void QueueClips()

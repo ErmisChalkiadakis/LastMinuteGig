@@ -1,14 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class MusicClipResults
 {
+    [NonSerialized]
     private const double EMPTY_WEIGHT = 0.5f;
+    [NonSerialized]
     private const double MULTIPLE_WEIGHT = 0.15f;
 
+    [NonSerialized]
     public int ID;
+    [NonSerialized]
     public List<InputWindowResults> InputWindowResults;
     public double ClipStartTime;
+    public Rhythm ClipRhythm;
+    public Tempo ClipTempo;
     public List<double> ButtonPressTimes;
 
     public MusicClipResults(double clipStartTime)
@@ -26,6 +34,24 @@ public class MusicClipResults
         ButtonPressTimes = new List<double>();
     }
 
+    public MusicClipResults(double clipStartTime, Rhythm rhythm, Tempo tempo)
+    {
+        ClipStartTime = clipStartTime;
+        InputWindowResults = new List<InputWindowResults>();
+        ButtonPressTimes = new List<double>();
+        ClipRhythm = rhythm;
+        ClipTempo = tempo;
+    }
+
+    public override string ToString()
+    {
+        foreach (double entry in ButtonPressTimes)
+        {
+            Debug.Log($"Entry: {entry}");
+        }
+        return JsonUtility.ToJson(this);
+        //return $"Start time: {ClipStartTime}/n Rhythm: {ClipRhythm}/n Tempo: {ClipTempo}/n ButtonPresses: {}";
+    }
     public static double MercuryDistance(MusicClipResults clipResultsA, MusicClipResults clipResultsB)
     {
         double distance = 0f;

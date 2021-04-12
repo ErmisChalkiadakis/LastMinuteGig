@@ -60,7 +60,7 @@ public class MusicClipInputManager : MonoBehaviour
     private int nextId;
 
     private InputWindow activeInputWindow;
-    private MusicClipResults activeClipResults = new MusicClipResults(0f); 
+    private MusicClipResults activeClipResults;
     
     protected void Awake()
     {
@@ -122,6 +122,7 @@ public class MusicClipInputManager : MonoBehaviour
         currentId = nextId;
         ClipInputFinalizedEvent?.Invoke(activeClipResults);
         activeClipResults.InputWindowResults.Clear();
+        activeClipResults.ButtonPressTimes.Clear();
     }
 
     private void OnClipScheduledEvent(MusicClip scheduledClip, double startingTime)
@@ -138,10 +139,7 @@ public class MusicClipInputManager : MonoBehaviour
             }
         }
 
-        double endingTime = startingTime + scheduledClip.Duration;
-
         StartCoroutine(ClipStarting(scheduledClip, startingTime));
-        StartCoroutine(ClipFinished(endingTime));
     }
 
     private IEnumerator ClipStarting(MusicClip scheduledClip, double scheduledTime)
@@ -151,34 +149,22 @@ public class MusicClipInputManager : MonoBehaviour
             yield return null;
         }
 
-        activeClipResults = new MusicClipResults(scheduledTime);
+        if (activeClipResults != null)
+        {
+            ClipFinishedCleanup();
+        }
+
+        activeClipResults = new MusicClipResults(scheduledTime, scheduledClip.PercussionClip.Rhythm, scheduledClip.PercussionClip.Tempo);
         currentInputWindows = nextInputWindows;
         if (scheduledClip.InputClip != null)
         {
             middleButton.SetInstrumentSounds(scheduledClip.InputClip.AudioClips);
         }
     }
-
-    private IEnumerator ClipFinished(double endingTime)
-    {
-        yield return new WaitForSecondsRealtime((float)(endingTime - AudioSettings.dspTime));
-
-        ClipFinishedCleanup();
-    }
     
     private void OnMiddleButtonSelectedEvent(ButtonID buttonId)
     {
         activeClipResults.ButtonPressTimes.Add(AudioSettings.dspTime);
-        activeInputWindow?.ButtonSelected(buttonId);
-    }
-
-    private void OnUpButtonSelectedEvent(ButtonID buttonId)
-    {
-        activeInputWindow?.ButtonSelected(buttonId);
-    }
-
-    private void OnDownButtonSelectedEvent(ButtonID buttonId)
-    {
         activeInputWindow?.ButtonSelected(buttonId);
     }
 }

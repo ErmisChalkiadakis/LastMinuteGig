@@ -7,6 +7,7 @@ public class MusicClipManager : MonoBehaviour
     public delegate void SequenceEndedHandler();
     public event SequenceEndedHandler SequenceEndedEvent;
 
+    [SerializeField] private DataReporter dataReporter;
     [SerializeField] private MusicMixer musicMixer;
     [SerializeField] private MusicClipInputManager inputManager;
     [SerializeField] private PercussionMusicClipLibrary percussionClipLibrary;
@@ -49,7 +50,8 @@ public class MusicClipManager : MonoBehaviour
         }
 
         this.clipResults.Add(clipResults);
-        // TODO: Send data here.
+
+        dataReporter.OnEvent<MusicClipResults>(clipResults);
     }
 
     private void QueueClips()

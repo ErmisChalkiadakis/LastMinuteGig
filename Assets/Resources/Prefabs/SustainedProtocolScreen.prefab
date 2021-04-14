@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5189205929496209039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6119300771353682844}
+  - component: {fileID: 6676542326884593334}
+  m_Layer: 0
+  m_Name: DataReporter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6119300771353682844
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5189205929496209039}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 907615125292088855}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6676542326884593334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5189205929496209039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 334e536289f723543b930ebe222afc10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8476938426776269783
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,6 +81,7 @@ RectTransform:
   - {fileID: 7615952635184067242}
   - {fileID: 850174155067531496}
   - {fileID: 5470541897014785448}
+  - {fileID: 6119300771353682844}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -56,7 +105,11 @@ MonoBehaviour:
   musicClipManager: {fileID: 7691223442134798062}
   stickFigure: {fileID: 0}
   stickFigureAnimator: {fileID: 0}
-  fadeToBlackAnimator: {fileID: 0}
+  sequenceAnimator: {fileID: 0}
+  sequenceAnimatorStateObserver: {fileID: 0}
+  playSongOnEnable: {fileID: 0}
+  bowOnEnable: {fileID: 0}
+  deepBowOnEnable: {fileID: 0}
   numberOfTotalSongs: 4
 --- !u!1001 &4089090752063822091
 PrefabInstance:
@@ -357,6 +410,11 @@ PrefabInstance:
       propertyPath: inputManager
       value: 
       objectReference: {fileID: 317873508247114164}
+    - target: {fileID: 4480045681151847043, guid: 4db7d4853a78a744a9e067db085bafa0,
+        type: 3}
+      propertyPath: dataReporter
+      value: 
+      objectReference: {fileID: 6676542326884593334}
     - target: {fileID: 6565568516537963834, guid: 4db7d4853a78a744a9e067db085bafa0,
         type: 3}
       propertyPath: m_Name

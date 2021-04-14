@@ -45,12 +45,9 @@ public class MusicClipResults
 
     public override string ToString()
     {
-        foreach (double entry in ButtonPressTimes)
-        {
-            Debug.Log($"Entry: {entry}");
-        }
         return JsonUtility.ToJson(this);
     }
+
     public static double MercuryDistance(MusicClipResults clipResultsA, MusicClipResults clipResultsB)
     {
         double distance = 0f;

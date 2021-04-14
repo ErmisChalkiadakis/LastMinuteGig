@@ -50,7 +50,6 @@ public class MusicClipResults
             Debug.Log($"Entry: {entry}");
         }
         return JsonUtility.ToJson(this);
-        //return $"Start time: {ClipStartTime}/n Rhythm: {ClipRhythm}/n Tempo: {ClipTempo}/n ButtonPresses: {}";
     }
     public static double MercuryDistance(MusicClipResults clipResultsA, MusicClipResults clipResultsB)
     {

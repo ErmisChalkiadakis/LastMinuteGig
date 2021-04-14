@@ -12,10 +12,11 @@ public class DataReporter : MonoBehaviour {
     private const string REMOTE_IP = "127.0.0.1";
     private const string BUFFER_FILE = "event_buffer";
 
-    public string username;
+    private string username;
     private List<string> eventBuffer;
 
     public void Awake() {
+        username = PlayerPrefs.GetString("Username") + PlayerPrefs.GetString("UsernamePrefix");
         this.eventBuffer = new List<string>();
     }
 

@@ -8,8 +8,8 @@ using System;
 using System.Linq;
 
 public class DataReporter : MonoBehaviour {
-    public const string APP_ID = "LastMinuteGig";
-    private const string REMOTE_IP = "127.0.0.1";
+    public const string APP_ID = "510cdc74-531e-40f0-aceb-540f4831e4fb";
+    private const string REMOTE_IP = "84.105.24.252";
     private const string BUFFER_FILE = "event_buffer";
 
     private string username;

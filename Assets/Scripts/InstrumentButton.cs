@@ -31,14 +31,6 @@ public class InstrumentButton : MonoBehaviour, IPointerEnterHandler, IPointerExi
         CreateAudioSources();
     }
 
-    protected void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && Interactable)
-        {
-            ButtonSelected();
-        }
-    }
-
     public void SetInstrumentSounds(AudioClip[] audioClips)
     {
         this.audioClips = audioClips;

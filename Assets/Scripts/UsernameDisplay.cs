@@ -7,6 +7,6 @@ public class UsernameDisplay : MonoBehaviour
 
     protected void Awake()
     {
-        usernameDisplayTextMesh.text = PlayerPrefs.GetString("Username") + PlayerPrefs.GetString("UsernameSuffix");
+        usernameDisplayTextMesh.text = PlayerPrefs.GetString("Username") + "#" + PlayerPrefs.GetString("UsernameSuffix");
     }
 }

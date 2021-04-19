@@ -51,7 +51,7 @@ public class UsernameScreen : MonoBehaviour
 
     private string GenerateRandomSuffix()
     {
-        string suffix = "#";
+        string suffix = "";
 
         for (int i = 0; i < 4; i++)
         {

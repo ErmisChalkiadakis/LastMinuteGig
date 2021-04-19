@@ -16,8 +16,9 @@ public class DataReporter : MonoBehaviour {
     private List<string> eventBuffer;
 
     public void Awake() {
-        username = PlayerPrefs.GetString("Username") + PlayerPrefs.GetString("UsernamePrefix");
+        username = PlayerPrefs.GetString("Username") + "%23" + PlayerPrefs.GetString("UsernameSuffix");
         this.eventBuffer = new List<string>();
+        OnEvent("New Session");
     }
 
     /**

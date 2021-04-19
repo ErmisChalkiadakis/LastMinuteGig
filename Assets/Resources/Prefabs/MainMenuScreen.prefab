@@ -56,6 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1765519488984818325}
   protocolOneButton: {fileID: 6882669836445678550}
+  restartFromTutorialButton: {fileID: 1645152390787307709}
 --- !u!114 &3753615288003496401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,6 +1148,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 8840363052043289289}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1645152390787307709 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7816989159830346356, guid: ba89bed64341b714988f439057db7d31,
+    type: 3}
+  m_PrefabInstance: {fileID: 8840363052043289289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7a58b05d4763da49894681591bcad4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9191287104244932743
 PrefabInstance:
   m_ObjectHideFlags: 0

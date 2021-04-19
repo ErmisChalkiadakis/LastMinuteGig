@@ -382,6 +382,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 831605445}
     m_Modifications:
+    - target: {fileID: 1831290305780530492, guid: 6fec31ddadeae1b46a7508ff4e59c333,
+        type: 3}
+      propertyPath: m_text
+      value: Play from Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831290305780530492, guid: 6fec31ddadeae1b46a7508ff4e59c333,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831290305780530492, guid: 6fec31ddadeae1b46a7508ff4e59c333,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831290305780530492, guid: 6fec31ddadeae1b46a7508ff4e59c333,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831290305780530492, guid: 6fec31ddadeae1b46a7508ff4e59c333,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831290305780530492, guid: 6fec31ddadeae1b46a7508ff4e59c333,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2536321701995654261, guid: 6fec31ddadeae1b46a7508ff4e59c333,
         type: 3}
       propertyPath: m_margin.x
@@ -510,22 +540,22 @@ PrefabInstance:
     - target: {fileID: 3847756187990953648, guid: 6fec31ddadeae1b46a7508ff4e59c333,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3847756187990953648, guid: 6fec31ddadeae1b46a7508ff4e59c333,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3847756187990953648, guid: 6fec31ddadeae1b46a7508ff4e59c333,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3847756187990953648, guid: 6fec31ddadeae1b46a7508ff4e59c333,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4948638407471130940, guid: 6fec31ddadeae1b46a7508ff4e59c333,
         type: 3}
@@ -590,7 +620,12 @@ PrefabInstance:
     - target: {fileID: 7182622147075570192, guid: 6fec31ddadeae1b46a7508ff4e59c333,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182622147075570192, guid: 6fec31ddadeae1b46a7508ff4e59c333,
+        type: 3}
+      propertyPath: m_Name
+      value: Restart from tutorial
       objectReference: {fileID: 0}
     - target: {fileID: 8950094468051365339, guid: 6fec31ddadeae1b46a7508ff4e59c333,
         type: 3}

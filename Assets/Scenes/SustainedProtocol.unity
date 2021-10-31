@@ -4110,6 +4110,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6676542326884593334, guid: ebb67b9d4b86f3940b8cc7a71e610d5e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6936229362665155069, guid: ebb67b9d4b86f3940b8cc7a71e610d5e,
         type: 3}
       propertyPath: m_LocalRotation.z

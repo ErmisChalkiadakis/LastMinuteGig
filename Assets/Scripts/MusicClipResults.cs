@@ -19,6 +19,16 @@ public class MusicClipResults
     public Tempo ClipTempo;
     public List<double> ButtonPressTimes;
 
+    public MusicClipResults(MusicClipResults copy)
+    {
+        ID = copy.ID;
+        InputWindowResults = copy.InputWindowResults;
+        ClipStartTime = copy.ClipStartTime;
+        ClipRhythm = copy.ClipRhythm;
+        ClipTempo = copy.ClipTempo;
+        ButtonPressTimes = new List<double>(copy.ButtonPressTimes);
+    }
+
     public MusicClipResults(double clipStartTime)
     {
         ClipStartTime = clipStartTime;
@@ -65,15 +75,20 @@ public class MusicClipResults
         // Calculate all times of Results A and generate the pairs
         foreach (double time in clipResultsA.ButtonPressTimes)
         {
-            timesA.Add(time - clipResultsA.ClipStartTime);
-            timePairs.Add(time, new List<double>());
+            double timeSinceStart = time - clipResultsA.ClipStartTime;
+            timesA.Add(timeSinceStart);
+            if (!timePairs.ContainsKey(timeSinceStart))
+            {
+                timePairs.Add(timeSinceStart, new List<double>());
+            }
         }
         // Calculate all times of Results B and create the time pairs
         foreach (double time in clipResultsB.ButtonPressTimes)
         {
-            timesB.Add(time - clipResultsB.ClipStartTime);
-            double closestA = FindClosestInList(time, timesA);
-            timePairs[closestA].Add(time);
+            double timeSinceStart = time - clipResultsB.ClipStartTime;
+            timesB.Add(timeSinceStart);
+            double closestA = FindClosestInList(timeSinceStart, timesA);
+            timePairs[closestA].Add(timeSinceStart);
         }
         // Assign double pairs to nearby empty times
         for (int i = 0; i < timesA.Count; i++)
@@ -81,12 +96,12 @@ public class MusicClipResults
             if (timePairs[timesA[i]].Count == 0)
             {
                 double current = timesA[i];
-                double previous = 0f;
+                double previous = double.MinValue;
                 double next = double.MaxValue;
                 if (i > 0)
                 {
                     List<double> timesPrevious = timePairs[timesA[i - 1]];
-                    if (timesPrevious.Count > 1) 
+                    if (timesPrevious.Count > 1)
                     {
                         previous = timesPrevious[timesPrevious.Count - 1];
                     }
@@ -100,7 +115,7 @@ public class MusicClipResults
                     }
                 }
 
-                if (previous == 0f && next == double.MaxValue)
+                if (previous == double.MinValue && next == double.MaxValue)
                 {
                     continue;
                 }
@@ -132,7 +147,7 @@ public class MusicClipResults
                 distance += EMPTY_WEIGHT;
                 continue;
             }
-            foreach(double time in timePairs[kvp.Key])
+            foreach (double time in timePairs[kvp.Key])
             {
                 distance += Mathf.Abs((float)(time - kvp.Key));
             }
@@ -148,7 +163,7 @@ public class MusicClipResults
     private static double FindClosestInList(double target, List<double> list)
     {
         double closestDistance = double.MaxValue;
-        double closestNumber = 0f;
+        double closestNumber = 0;
 
         foreach (double number in list)
         {

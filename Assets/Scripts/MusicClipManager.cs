@@ -49,9 +49,14 @@ public class MusicClipManager : MonoBehaviour
             SequenceEndedEvent?.Invoke();
         }
 
-        this.clipResults.Add(clipResults);
+        this.clipResults.Add(new MusicClipResults(clipResults));
+        int count = this.clipResults.Count;
+        if (count > 1)
+        {
+            Debug.Log($"Distance: {MusicClipResults.MercuryDistance(this.clipResults[count - 2], this.clipResults[count - 1])}");
+        }
 
-        dataReporter.OnEvent<MusicClipResults>(clipResults);
+        //dataReporter.OnEvent<MusicClipResults>(clipResults);
     }
 
     private void QueueClips()
